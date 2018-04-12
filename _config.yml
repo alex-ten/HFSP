@@ -1,3 +1,4 @@
 markdown: redcarpet
 baseurl: /HFSP
 exclude: ['README.md']
+permalink: pretty

@@ -1,0 +1,11 @@
+html {
+    margin: 0;
+    padding: 0;
+
+    font: normal 100%/1.4 Menlo, sans;
+}
+
+.current {
+    background: #C42525;
+    color: #FFF;
+}

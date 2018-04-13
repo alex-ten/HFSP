@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<nav>
+<ol class="nav {{include.navclass}}">
+    {% for section in site.data.anal_sections %}
+    <li>
+        <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html"
+           class="{% if page.title == {{section.title}} %}current{% endif %}">
+            {{section.title}}
+        </a>
+    </li>
+    {% endfor %}
+</ol>
+</nav>
+
+{{content}}

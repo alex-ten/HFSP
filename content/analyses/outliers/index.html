@@ -1,0 +1,12 @@
+---
+layout: analysis
+title: Outliers
+---
+
+<h1>Outliers</h1>
+
+{% for entry in site.pages %}
+    {% if entry.category == include.category %}
+       {% include anal_list.html category=outliers%}
+    {% endif %}
+{% endfor %}

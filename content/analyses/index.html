@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<p>
+    Analyses are divided into three sections, each focusing on a different aspect of the data. Note, that all analyses and visualizations were performed on clean data that excluded outliers (see the outliers section below).
+</p>
+
+<ul>
+    {% for section in site.data.anal_sections %}
+    <li>
+        <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html">
+            {{section.title}}
+        </a>
+        {% include anal_nav.html category=section.folder %}
+    </li>
+    {% endfor %}
+</ul>

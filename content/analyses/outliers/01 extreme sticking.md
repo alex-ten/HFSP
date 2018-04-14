@@ -4,4 +4,5 @@ category: outliers
 num: 1
 ---
 
-<h2>Extreme sticking</h2>
+<a id="{{ page.num }}"></a>
+## Extreme sticking

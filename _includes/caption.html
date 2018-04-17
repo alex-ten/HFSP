@@ -1,0 +1,3 @@
+<div class='caption' id="{% if include.obj == 'table' %}t{% else %}f{% endif %}-{{include.num}}{% if include.ext == null %}{% else %}-{{include.ext | replace: '.', '-'}}{% endif %}">
+    <b>{% if include.obj == 'table' %}Table{% else %}Figure{% endif %} {{include.num}}{% if include.ext == null %}{% else %}.{{include.ext}}{% endif %}.</b> {{ include.label }}
+</div>

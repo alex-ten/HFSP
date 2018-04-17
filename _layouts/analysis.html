@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<nav>
+<nav class=omniheader>
 <ol class="nav {{include.navclass}}">
     {% for section in site.data.anal_sections %}
     <li>
         <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html"
-           class="{% if page.title == {{section.title}} %}current{% endif %}">
+           class="{% if page.title == {{section.title}} %}current{% else %}latent{% endif %}">
             {{section.title}}
         </a>
     </li>
@@ -16,3 +16,5 @@ layout: default
 </nav>
 
 {{content}}
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>

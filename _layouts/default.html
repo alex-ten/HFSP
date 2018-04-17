@@ -5,22 +5,27 @@
     <meta charset="utf-8">
     <title>HFSP Project</title>
     <link href="{{site.baseurl}}/css/common.css" rel="stylesheet">
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML">
+    </script>
+    <script type="text/javascript" src={{site.baseurl}}/js/top.js></script>
 </head>
 
 <body>
-    <header>
-        <h1>HFSP Project</h1>
+    
+    <header class=omniheader>
+        <a href={{site.baseurl}}/index.html class=homelink> HFSP Project </a>
         {% include nav.html navclass='nav-top' %}
     </header>
 
     {{content}}
 
-<!--
     <footer>
-        <h2>Footer</h2>
-        {% include nav.html navclass='nav-bottom' %}
+            <a href='https://gist.github.com/JJediny/a466eed62cee30ad45e2', align='center'>Jekyll liquids cheat sheet</a>
     </footer>
--->
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    {% include lightbox.html %}
+    
 </body>
 </html>

@@ -5,9 +5,16 @@ title: Outliers
 
 <h1>Outliers</h1>
 
+<ol>
 {% for entry in site.pages %}
     {% if entry.category == "outliers" %}
-        {{ forloop.index }} {{ entry.content }}
-       {% include anal_list.html category=outliers %}
+        <li> <a href='#{{ entry.entrynum }}'>{{ entry.title }}</a> </li>
+    {% endif %}
+{% endfor %}
+</ol>
+
+{% for entry in site.pages %}
+    {% if entry.category == "outliers" %}
+        {{ entry.content }}
     {% endif %}
 {% endfor %}

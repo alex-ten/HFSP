@@ -1,13 +1,54 @@
-html {
-    margin: 0;
-    padding: 0;
-
-    font: normal 100%/1.4 Menlo, sans;
+:root {
+    --maincolor: #B30000;
 }
 
-.current {
-    background: #C42525;
-    color: #FFF;
+html {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 0;
+    font: normal 100%/1.4 Arial, sans;
+}
+
+header a.homelink {
+    text-decoration: none; 
+    color: white;
+    font: normal 35px Menlo, sans;
+    height: 100px;
+}
+
+nav a.current {
+    background: white;
+    color: var(--maincolor);
+    text-decoration: none;  
+    box-sizing: content-box;    
+    width: 100px;
+    height: 20px;
+    padding: 10px 15px 10px 15px;    
+    border: 5px solid white;
+    border-radius: 18px 0px;
+}
+
+nav a.latent {
+    color: white;
+    text-decoration: none;  
+    padding: 3px 6px 3px 6px;
+    box-sizing: content-box;    
+    width: 500px;
+    height: 20px;
+    padding: 10px 15px 10px 15px;    
+    border: 5px solid white;
+}
+
+nav a.latent:hover {
+    color: white;
+    text-decoration: none;  
+    padding: 3px 6px 3px 6px;
+    box-sizing: content-box;    
+    width: 500px;
+    height: 20px;
+    padding: 10px 15px 10px 15px;    
+    border: 5px solid white;
+    border-radius: 18px 0px;
 }
 
 .nav > li {
@@ -16,4 +57,111 @@ html {
 
 .nav-top {
     font-size: 1.5rem;
+}
+
+.omniheader {
+    padding: 10px 20px 10px 20px;
+    color: white;
+    background: var(--maincolor);
+    text-align: center;
+    align-items: center;
+    font: normal 100%/1.4 Menlo, sans;
+}
+
+
+/* APA style table */
+table.apa {
+  width: auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.apa td, table.apa th {
+  padding: 5px 10px;
+}
+
+table.apa tbody td {
+  font-size: 12px;
+}
+
+table.apa thead {
+    border-bottom: 2px solid #000000;
+}
+
+table.apa thead th {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+table.apa tfoot {
+  font-size: 12px;
+  font-weight: normal;
+  border-top: 2px solid #000000;
+}
+
+table.apa tfoot td {
+  font-size: 12px;
+}
+
+.caption {
+    text-align: center;
+    font-size: 15px;
+}
+
+.tablefooter {
+    text-align: center;
+    font-size: 10;
+}
+
+
+/* Image grid table*/
+table.imagegrid {
+    width: auto;
+    text-align: center;
+}
+
+/* Image */
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Links */
+/* unvisited link */
+a:not(.latent):not(.current):not(.homelink) {
+    color: var(--maincolor);
+    text-decoration: none;
+    font: normal 100%/1.4  Lucida, monospace;
+
+}
+
+/* visited link */
+a:not(.latent):not(.current):not(.homelink):visited {
+    color: var(--maincolor);
+}
+
+/* mouse over link */
+a:not(.latent):not(.current):not(.homelink):hover {
+    font-weight: bold;
+}
+
+/* Back to top button */
+#myBtn {
+    position: fixed; /* Fixed/sticky position */
+    display: none;
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    background-color: white;
+    color: var(--maincolor);
+    border: 5px solid var(--maincolor);
+    cursor: pointer;
+    padding: 8px 8px;
+    font-size: 18px;
+}
+
+#myBtn:hover {
+    border-radius: 15px 0px; /* Rounded corners */
 }

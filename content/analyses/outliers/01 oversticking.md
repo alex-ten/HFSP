@@ -27,7 +27,6 @@ Simple search of subjects who showed *extreme sticking* (i.e. played only one ta
 |                   |                  |
 {: .apa : align='center' : id='t-1-1'}
 
-
 ### {{ page.entrynum }}.2. Allocation variance
 
 To quantify oversticking we can measure the **allocation variance** of each subject by computing the standard deviation of the number of trials that each subject played on each task. [Figure 1.2.1](#f-1-2-1) shows the distribution of allocation variance scores across all participants.

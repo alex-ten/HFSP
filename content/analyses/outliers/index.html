@@ -13,8 +13,11 @@ title: Outliers
 {% endfor %}
 </ol>
 
+<hr>
+
 {% for entry in site.pages %}
     {% if entry.category == "outliers" %}
         {{ entry.content }}
+        <hr>
     {% endif %}
 {% endfor %}

@@ -81,7 +81,7 @@ table.apa td, table.apa th {
 }
 
 table.apa tbody td {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 table.apa thead {
@@ -89,7 +89,7 @@ table.apa thead {
 }
 
 table.apa thead th {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   text-align: center;
 }
@@ -106,12 +106,12 @@ table.apa tfoot td {
 
 .caption {
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .tablefooter {
     text-align: center;
-    font-size: 10;
+    font-size: 12px;
 }
 
 

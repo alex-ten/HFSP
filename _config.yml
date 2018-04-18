@@ -1,5 +1,3 @@
 markdown: kramdown
-redcarpet:
-  extensions: ['with_toc_data']
 baseurl: /HFSP
 exclude: ['README.md']

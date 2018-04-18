@@ -21,8 +21,8 @@ That leaves us with 330 subjects: 75, 79, 84, and 92 in groups F/i-, F/i+, S/i- 
         <td>(b) Mean choice biases across four tasks</td>
     </tr>
     <tr>
-        <td><a href="/img/task_allocation_variance_clean.jpg"><img src="/img/task_allocation_variance_clean.jpg" alt="allocation_variance_clean" /></a></td>
-        <td><a href="/img/average_choice_bias_across_tasks_clean.jpg"><img src="/img/average_choice_bias_across_tasks_clean.jpg" alt="allocation_variance_clean" /></a></td>
+        <td><a href="{{site.baseurl}}/img/task_allocation_variance_clean.jpg"><img src="{{site.baseurl}}/img/task_allocation_variance_clean.jpg" alt="allocation_variance_clean" /></a></td>
+        <td><a href="{{site.baseurl}}/img/average_choice_bias_across_tasks_clean.jpg"><img src="{{site.baseurl}}/img/average_choice_bias_across_tasks_clean.jpg" alt="allocation_variance_clean" /></a></td>
     </tr>
 </table>
     

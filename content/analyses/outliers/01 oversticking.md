@@ -56,4 +56,4 @@ Filtering the subjects by allocation variance (cutoff = 100) detected **55 outli
     ext='2.2' 
     label='Stickers vs. Nonstickers' %}
     
-[![allocation_variance_raw](/img/stickers_nonstickers.jpg)](/img/stickers_nonstickers.jpg)
+[![allocation_variance_raw]({{site.baseurl}}/img/stickers_nonstickers.jpg)]({{site.baseurl}}/img/stickers_nonstickers.jpg)

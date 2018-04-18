@@ -13,7 +13,7 @@ Another way to find outliers is to see whether the subjects were choice-biased, 
     obj='figure' 
     num=page.entrynum 
     label='Mean choice biases across four tasks' %}
-[![allocation_variance_raw](/img/average_choice_bias_across_tasks_raw.jpg)](/img/average_choice_bias_across_tasks_raw.jpg)
+[![allocation_variance_raw]({{site.baseurl}}/img/average_choice_bias_across_tasks_raw.jpg)]({{site.baseurl}}/img/average_choice_bias_across_tasks_raw.jpg)
 
 #### Notes
 - Relative frequency hisogram of means of choice bias:

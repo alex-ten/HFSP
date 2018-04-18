@@ -7,7 +7,7 @@ layout: default
     {% for section in site.data.anal_sections %}
     <li>
         <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html"
-           class="{% if page.title == {{section.title}} %}current{% else %}latent{% endif %}">
+           class="{% if page.title == section.title %}current{% else %}latent{% endif %}">
             {{section.title}}
         </a>
     </li>

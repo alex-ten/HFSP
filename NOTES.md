@@ -1,7 +1,16 @@
-To insert an image, use:
-```
-{% include image.html url='{{baseurl}}/img/' label='' num={{page.entrynum}} %}
-```
-* `url` is the path to image
-* `label` is the image caption
-* `num` is the entry number (used for global referencing)
+## Template .md for analysis entry
+
+---
+title:
+category:
+doctype:
+entrynum:
+---
+
+## Template for figure
+
+{% include caption.html 
+    obj='figure' 
+    num=page.entrynum 
+    label='caption content' %}
+[![alt]({{site.baseurl}}/img/file.name)]({{site.baseurl}}/img/file.name)

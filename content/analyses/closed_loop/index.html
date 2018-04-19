@@ -1,0 +1,31 @@
+---
+layout: analysis
+title: Closed loop
+---
+
+<script>
+    $(document).ready(function(){
+        $('.switch').click(function(e){
+            e.preventDefault()
+            $('.rastergrid img').each(function(i, el){
+                var src = el.src;
+                if (src.indexOf('color_coded') !== -1) {
+                    el.src = src.replace('color_coded', 'easy_hard')
+                } else {
+                    el.src =  src.replace('easy_hard', 'color_coded')
+                }
+            })
+            $('.rastergrid a').each(function(i, el){
+                var href = el.href;
+                if (href.indexOf('color_coded') !== -1) {
+                    el.href = href.replace('color_coded', 'easy_hard')
+                } else {
+                    el.href =  href.replace('easy_hard', 'color_coded')
+                }
+            })
+        });
+    });
+
+</script>
+
+{% include cont.html category='closed_loop' title=page.title %}

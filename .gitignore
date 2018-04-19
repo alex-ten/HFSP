@@ -4,3 +4,9 @@
 .idea/markdown-navigator.xml
 
 _site/*
+
+*/.DS_Store
+
+Gemfile
+
+.travis.yml

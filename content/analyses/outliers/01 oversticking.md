@@ -5,8 +5,6 @@ doctype: entry
 entrynum: 1
 ---
 
-<a id="{{ page.entrynum }}"></a>
-## {{ page.entrynum }}. {{ page.title }}
 ### {{ page.entrynum }}.1. Extreme sticking
 Simple search of subjects who showed *extreme sticking* (i.e. played only one task) during free exploration detected **48 outliers**
 - All, but not only extreme stickers can be seen in the right tail of the histogram below ([Figure 1.2.1](#f-1-2-1)).

@@ -4,9 +4,6 @@ category: outliers
 entrynum: 2
 ---
 
-<a id="{{ page.entrynum }}"></a>
-## {{ page.entrynum }}. {{ page.title }}
-
 Another way to find outliers is to see whether the subjects were choice-biased, or had a deviant preference towards one of the two possible responses across tasks. For each task within a subject, a single choice bias score was defined as the proportion of the number of choices of the more frequently chosen item. For instance, a choice bias score of .8 on any given task means that the subject chose one food item 80% of the time on that task. [Figure 2](#f-2) shows the sample distribution of *mean choice biases* across subjects, where mean choice bias of an individual subject is the average of choice biases across the four tasks.
 
 {% include caption.html 

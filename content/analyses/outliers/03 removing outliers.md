@@ -4,9 +4,6 @@ category: outliers
 entrynum: 3
 ---
 
-<a id="{{ page.entrynum }}"></a>
-## {{ page.entrynum }}. {{ page.title }}
-
 Removing extreme stickers (no switches during free exploration), overstickers (with allocation variance score > 100) and choice-biased participants (choice bias > 2 s.d.) leaves out 70 outliers (48 by extreme sticking criterion, 55 by allocation variance, and 18 by side-bias).
 
 That leaves us with 330 subjects: 75, 79, 84, and 92 in groups F/i-, F/i+, S/i- and S/i+, respectively.

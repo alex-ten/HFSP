@@ -3,21 +3,4 @@ layout: analysis
 title: Outliers
 ---
 
-<h1>Outliers</h1>
-
-<ol>
-{% for entry in site.pages %}
-    {% if entry.category == "outliers" %}
-        <li> <a href='#{{ entry.entrynum }}'>{{ entry.title }}</a> </li>
-    {% endif %}
-{% endfor %}
-</ol>
-
-<hr>
-
-{% for entry in site.pages %}
-    {% if entry.category == "outliers" %}
-        {{ entry.content }}
-        <hr>
-    {% endif %}
-{% endfor %}
+{% include cont.html category='outliers' title=page.title %}

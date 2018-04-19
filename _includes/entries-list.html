@@ -1,0 +1,11 @@
+<ul>
+  {% for entry in site.pages %}
+    {% if entry.category == include.category %}
+
+    <a href="{{site.baseurl}}/content/analyses/{{include.category}}/index.html#{{entry.entrynum}}">
+        <li>{{entry.title}}</li>
+    </a>
+
+    {% endif %}
+  {% endfor %}
+</ul>

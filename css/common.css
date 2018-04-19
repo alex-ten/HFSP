@@ -138,12 +138,12 @@ a:not(.latent):not(.current):not(.homelink) {
 }
 
 /* visited link */
-a:not(.latent):not(.current):not(.homelink):visited {
+a:not(.latent):not(.current):not(.homelink):not(.switch):visited {
     color: var(--maincolor);
 }
 
 /* mouse over link */
-a:not(.latent):not(.current):not(.homelink):hover {
+a:not(.latent):not(.current):not(.homelink)not(.switch):hover {
     font-weight: bold;
 }
 
@@ -164,4 +164,47 @@ a:not(.latent):not(.current):not(.homelink):hover {
 
 #myBtn:hover {
     border-radius: 15px 0px; /* Rounded corners */
+}
+
+
+/* Nested ordered lists */
+ol {
+  counter-reset: item
+}
+ol li {
+  display: block
+}
+ol li:before {
+  content: counters(item, ".") " ";
+  counter-increment: item
+}
+
+
+.loctoc {
+    background: white;
+    border: 2px solid var(--maincolor);
+    box-sizing: content-box;
+    display: inline-block;
+    padding: 1em 1.5em 1.5em 1em;
+}
+
+
+.switch {
+    color: var(--maincolor);
+    text-decoration: none;
+    box-sizing: content-box;
+    width: 500px;
+    padding: 3px 5px 3px 5px;
+    border: 2px solid var(--maincolor);
+}
+
+.switch:hover {
+    color: var(--maincolor);
+    text-decoration: none;
+    font-weight: normal;
+    box-sizing: content-box;
+    width: 500px;
+    padding: 3px 5px 3px 5px;
+    border: 2px solid var(--maincolor);
+    border-radius: 10px 0px;
 }

@@ -1,6 +1,7 @@
 ---
 title: Removing outliers
 category: outliers
+doctype: entry
 entrynum: 3
 ---
 
@@ -18,8 +19,8 @@ That leaves us with 330 subjects: 75, 79, 84, and 92 in groups F/i-, F/i+, S/i- 
         <td>(b) Mean choice biases across four tasks</td>
     </tr>
     <tr>
-        <td><a href="{{site.baseurl}}/img/task_allocation_variance_clean.jpg"><img src="{{site.baseurl}}/img/task_allocation_variance_clean.jpg" alt="allocation_variance_clean" /></a></td>
-        <td><a href="{{site.baseurl}}/img/average_choice_bias_across_tasks_clean.jpg"><img src="{{site.baseurl}}/img/average_choice_bias_across_tasks_clean.jpg" alt="allocation_variance_clean" /></a></td>
+        <td><a href="{{site.baseurl}}/img/task_allocation_variance_clean.svg"><img src="{{site.baseurl}}/img_compressed/task_allocation_variance_clean.svg" alt="allocation_variance_clean" /></a></td>
+        <td><a href="{{site.baseurl}}/img/average_choice_bias_across_tasks_clean.svg"><img src="{{site.baseurl}}/img_compressed/average_choice_bias_across_tasks_clean.svg" alt="choice_bias_clean" /></a></td>
     </tr>
 </table>
     

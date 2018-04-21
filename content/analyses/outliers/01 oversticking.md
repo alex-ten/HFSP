@@ -34,7 +34,7 @@ To quantify oversticking we can measure the **allocation variance** of each subj
     num=page.entrynum 
     ext='2.1' 
     label='Task allocation variance' %}
-[![allocation_variance_raw]({{site.baseurl}}/img/task_allocation_variance_raw.jpg)]({{site.baseurl}}/img/task_allocation_variance_raw.jpg)
+[![allocation_variance_raw]({{site.baseurl}}/img_compressed/task_allocation_variance_raw.svg)]({{site.baseurl}}/img/task_allocation_variance_raw.svg)
 
 #### Notes:
 - Relative frequency histogram of task allocation variance (std):
@@ -54,4 +54,4 @@ Filtering the subjects by allocation variance (cutoff = 100) detected **55 outli
     ext='2.2' 
     label='Stickers vs. Nonstickers' %}
     
-[![allocation_variance_raw]({{site.baseurl}}/img/stickers_nonstickers.jpg)]({{site.baseurl}}/img/stickers_nonstickers.jpg)
+[![allocation_variance_raw]({{site.baseurl}}/img_compressed/stickers_nonstickers.svg)]({{site.baseurl}}/img/stickers_nonstickers.svg)

@@ -1,23 +1,21 @@
 <h1>{{ include.title }}</h1>
 
 <div class=loctoc>
-    <b style='color: var(--maincolor)'>Content</b>
+    <b style='color: var(--maincolor)'>Contents</b>
     <ol>
     {% for entry in site.pages %}
-        {% if entry.category == include.category %}
-            <a href='#{{ entry.entrynum }}'><li>{{ entry.title }}</li></a>
+        {% if entry.doctype == 'entry' and entry.category == include.category %}
+            <li class='linkli'><a href='#{{ entry.entrynum }}'>{{ entry.title }}</a></li>
         {% endif %}
     {% endfor %}
     </ol>
 </div>
 
 {% for entry in site.pages %}
-    {% if entry.category == include.category %}
-
-        <a id='{{ entry.entrynum }}'></a>
-        <h2>{{entry.entrynum }}. {{ entry.title }}</h2>
-        {{ entry.content }}
-        <hr>
-
+    {% if entry.doctype == 'entry' and entry.category == include.category%}
+            <a id='{{ entry.entrynum }}'></a>
+            <h2>{{entry.entrynum }}. {{ entry.title }}</h2>
+            {{ entry.content }}
+            <hr>
     {% endif %}
 {% endfor %}

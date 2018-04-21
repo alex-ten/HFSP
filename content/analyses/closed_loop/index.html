@@ -1,6 +1,6 @@
 ---
 layout: analysis
-title: Closed loop
+category: closed_loop
 ---
 
 <script>
@@ -9,18 +9,18 @@ title: Closed loop
             e.preventDefault()
             $('.rastergrid img').each(function(i, el){
                 var src = el.src;
-                if (src.indexOf('color_coded') !== -1) {
-                    el.src = src.replace('color_coded', 'easy_hard')
+                if (src.indexOf('4colors') !== -1) {
+                    el.src = src.replace('4colors', '2colors')
                 } else {
-                    el.src =  src.replace('easy_hard', 'color_coded')
+                    el.src =  src.replace('2colors', '4colors')
                 }
             })
             $('.rastergrid a').each(function(i, el){
                 var href = el.href;
-                if (href.indexOf('color_coded') !== -1) {
-                    el.href = href.replace('color_coded', 'easy_hard')
+                if (href.indexOf('4colors') !== -1) {
+                    el.href = href.replace('4colors', '2colors')
                 } else {
-                    el.href =  href.replace('easy_hard', 'color_coded')
+                    el.href =  href.replace('2colors', '4colors')
                 }
             })
         });

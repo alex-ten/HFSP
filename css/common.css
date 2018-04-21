@@ -1,12 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
 :root {
-    --maincolor: #B30000;
+    --maincolor: #008FD5;
+    --blue_: #008FD5;
+    --red_: #FC4F30;
+    --yellow_: #E5AE38;
+    --green_: #6D904F;
+    --mainfontcolor: #131516;
 }
 
 html {
+    color: var(--mainfontcolor);
     margin-left: 20%;
     margin-right: 20%;
     padding: 0;
-    font: normal 100%/1.4 Arial, sans;
+    font: normal 17px Roboto, sans-serif;
+    line-height: 25px;
+    text-align: justify;
+
 }
 
 header a.homelink {
@@ -15,7 +27,6 @@ header a.homelink {
     font: normal 35px Menlo, sans;
     height: 100px;
 }
-
 nav a.current {
     background: white;
     color: var(--maincolor);
@@ -27,7 +38,6 @@ nav a.current {
     border: 5px solid white;
     border-radius: 18px 0px;
 }
-
 nav a.latent {
     color: white;
     text-decoration: none;  
@@ -38,7 +48,6 @@ nav a.latent {
     padding: 10px 15px 10px 15px;    
     border: 5px solid white;
 }
-
 nav a.latent:hover {
     color: white;
     text-decoration: none;  
@@ -50,15 +59,12 @@ nav a.latent:hover {
     border: 5px solid white;
     border-radius: 18px 0px;
 }
-
 .nav > li {
     display: inline-block;
 }
-
 .nav-top {
     font-size: 1.5rem;
 }
-
 .omniheader {
     padding: 10px 20px 10px 20px;
     color: white;
@@ -75,40 +81,32 @@ table.apa {
   text-align: center;
   border-collapse: collapse;
 }
-
 table.apa td, table.apa th {
   padding: 5px 10px;
 }
-
 table.apa tbody td {
-  font-size: 13px;
+  font-size: 15px;
 }
-
 table.apa thead {
     border-bottom: 2px solid #000000;
 }
-
 table.apa thead th {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
 }
-
 table.apa tfoot {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: normal;
   border-top: 2px solid #000000;
 }
-
 table.apa tfoot td {
-  font-size: 12px;
+  font-size: 13px;
 }
-
 .caption {
     text-align: center;
     font-size: 16px;
 }
-
 .tablefooter {
     text-align: center;
     font-size: 12px;
@@ -121,6 +119,7 @@ table.imagegrid {
     text-align: center;
 }
 
+
 /* Image */
 img {
     width: 100%;
@@ -129,23 +128,40 @@ img {
 
 
 /* Links */
-/* unvisited link */
-a:not(.latent):not(.current):not(.homelink) {
+a:not(.latent):not(.current):not(.homelink):not(.switch) {
     color: var(--maincolor);
     text-decoration: none;
-    font: normal 100%/1.4  Lucida, monospace;
-
+    font: normal 17px Roboto, sans-serif;
+    position: relative;
+    white-space: nowrap;
+    f
 }
-
-/* visited link */
 a:not(.latent):not(.current):not(.homelink):not(.switch):visited {
     color: var(--maincolor);
 }
-
-/* mouse over link */
-a:not(.latent):not(.current):not(.homelink)not(.switch):hover {
-    font-weight: bold;
+a:not(.latent):not(.current):not(.homelink):not(.switch):hover {
+        color: var(--maincolor);
 }
+a:not(.latent):not(.current):not(.homelink):not(.switch):before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--red_);
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+a:not(.latent):not(.current):not(.homelink):not(.switch):hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
 
 /* Back to top button */
 #myBtn {
@@ -161,11 +177,9 @@ a:not(.latent):not(.current):not(.homelink)not(.switch):hover {
     padding: 8px 8px;
     font-size: 18px;
 }
-
 #myBtn:hover {
     border-radius: 15px 0px; /* Rounded corners */
 }
-
 
 /* Nested ordered lists */
 ol {
@@ -175,11 +189,23 @@ ol li {
   display: block
 }
 ol li:before {
-  content: counters(item, ".") " ";
-  counter-increment: item
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+.custom-counter {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.custom-counter li {
+  counter-increment: step-counter;
+}
+.custom-counter li::before {
+  content: counter(step-counter)'.';
+  margin-right: 5px;
 }
 
-
+/* Lists with links */
 .loctoc {
     background: white;
     border: 2px solid var(--maincolor);
@@ -187,24 +213,46 @@ ol li:before {
     display: inline-block;
     padding: 1em 1.5em 1.5em 1em;
 }
-
+ul .linkli {
+    color: var(--maincolor)
+}
+ol .linkli {
+    color: var(--maincolor)
+}
 
 .switch {
     color: var(--maincolor);
+    font-size: 18px;
     text-decoration: none;
     box-sizing: content-box;
     width: 500px;
     padding: 3px 5px 3px 5px;
-    border: 2px solid var(--maincolor);
+    border: 3px solid var(--maincolor);
 }
-
 .switch:hover {
+    cursor: pointer;
     color: var(--maincolor);
+    font-size: 18px;
     text-decoration: none;
     font-weight: normal;
     box-sizing: content-box;
     width: 500px;
     padding: 3px 5px 3px 5px;
-    border: 2px solid var(--maincolor);
-    border-radius: 10px 0px;
+    border: 3px solid var(--maincolor);
+    border-radius: 13px 0px;
+}
+
+.codeblock {
+    font-size: 16px;
+    background: #F2F2F2;
+    color: var(--mainfontcolor);
+    padding: 10px 40px;
+    border-left: solid;
+    border-left-width: 6px;
+    border-left-color: var(--maincolor);
+    border-right: solid;
+    border-right-width: 6px;
+    border-right-color: var(--maincolor);
+    border-radius: 5px;
+    font-family: 'Source Code Pro', monospace;
 }

@@ -13,4 +13,4 @@ entrynum:
     obj='figure' 
     num=page.entrynum 
     label='caption content' %}
-[![alt]({{site.baseurl}}/img/file.name)]({{site.baseurl}}/img/file.name)
+[![alt]({{site.baseurl}}/img_compressed/file.name)]({{site.baseurl}}/img/file.name)

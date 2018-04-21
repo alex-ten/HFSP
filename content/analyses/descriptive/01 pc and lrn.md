@@ -1,6 +1,7 @@
 ---
 title: Performance and learnability ratings
 category: descriptive
+doctype: entry
 entrynum: 1
 ---
 
@@ -27,7 +28,7 @@ The LRN ratings were:
         <td>(b) LRN across subjects for each task <br>split by group and condition</td>
     </tr>
     <tr>
-        <td><a href="{{site.baseurl}}/img/pc_clean.jpg"><img src="{{site.baseurl}}/img/pc_clean.jpg" alt="pc_histogram" /></a></td>
-        <td><a href="{{site.baseurl}}/img/lrn_clean.jpg"><img src="{{site.baseurl}}/img/lrn_clean.jpg" alt="lrn_histogram" /></a></td>
+        <td><a href="{{site.baseurl}}/img/pc_clean.svg"><img src="{{site.baseurl}}/img_compressed/pc_clean.svg" alt="pc_histogram" /></a></td>
+        <td><a href="{{site.baseurl}}/img/lrn_clean.svg"><img src="{{site.baseurl}}/img_compressed/lrn_clean.svg" alt="lrn_histogram" /></a></td>
     </tr>
 </table>

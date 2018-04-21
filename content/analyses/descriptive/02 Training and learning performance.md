@@ -1,6 +1,7 @@
 ---
 title: Capturing training and learning performance
 category: descriptive
+doctype: entry
 entrynum: 2
 ---
 
@@ -14,7 +15,7 @@ entrynum: 2
     num=page.entrynum 
     label='Traning performance plotted against learning performance (split by group and task)' 
 %}
-[![training_learning_performance]({{site.baseurl}}/img/learning_data-5-10-clean.jpg)]({{site.baseurl}}/img/learning_data-5-10-clean.jpg)
+[![training_learning_performance]({{site.baseurl}}/img_compressed/learning_data-5-10-clean.svg)]({{site.baseurl}}/img/learning_data-5-10-clean.svg)
 
 #### Notes
 - Additional filtering of subjects who played only up to 10 trials in the F group was applied and resulted in the removal of 41 more subjects. Thus, [Figure 2](#f-2) depicts data from 289 subjects: 57, 56, 84, 92 in groups F/i-, F/i+, S/i- and S/i+, respectively.

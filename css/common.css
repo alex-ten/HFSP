@@ -40,11 +40,10 @@ nav a.current {
 }
 nav a.latent {
     color: white;
-    text-decoration: none;  
-    padding: 3px 6px 3px 6px;
+    text-decoration: none;
     box-sizing: content-box;    
     width: 500px;
-    height: 20px;
+    height: ;
     padding: 10px 15px 10px 15px;    
     border: 5px solid white;
 }
@@ -61,12 +60,13 @@ nav a.latent:hover {
 }
 .nav > li {
     display: inline-block;
+    Smargin: 18px 0 18px 0;
 }
 .nav-top {
     font-size: 1.5rem;
 }
 .omniheader {
-    padding: 10px 20px 10px 20px;
+    padding: 1px 10px 1px 10px;
     color: white;
     background: var(--maincolor);
     text-align: center;

@@ -260,4 +260,5 @@ ol .linkli {
     border-right-color: var(--maincolor);
     border-radius: 5px;
     font-family: 'Source Code Pro', monospace;
+    overflow-x: scroll;
 }

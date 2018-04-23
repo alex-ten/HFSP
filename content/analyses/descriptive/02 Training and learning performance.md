@@ -12,7 +12,7 @@ entrynum: 2
 {% 
     include caption.html 
     obj='figure' 
-    num=page.entrynum 
+    num=page.entrynum
     label='Traning performance plotted against learning performance (split by group and task)' 
 %}
 [![training_learning_performance]({{site.baseurl}}/img_compressed/learning_data-5-10-clean.svg)]({{site.baseurl}}/img/learning_data-5-10-clean.svg)

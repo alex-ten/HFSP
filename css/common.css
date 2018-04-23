@@ -21,11 +21,25 @@ html {
 
 }
 
+#headerdiv {
+    background: var(--maincolor);
+    text-align: center;
+    padding: 20px 0px 10px 0px;
+}
 header a.homelink {
     text-decoration: none; 
     color: white;
-    font: normal 35px Menlo, sans;
+    font: normal 35px Helvetica, sans;
+    width: auto;
     height: 100px;
+}
+nav > ul {
+    padding: 0;
+    margin: 0;
+}
+ul.ulnav > li {
+    display: inline-block;
+    margin: 18px 0 18px 0;
 }
 nav a.current {
     background: white;
@@ -58,21 +72,10 @@ nav a.latent:hover {
     border: 5px solid white;
     border-radius: 18px 0px;
 }
-.nav > li {
-    display: inline-block;
-    margin: 18px 0 18px 0;
-  }
-}
-.nav-top {
-    font-size: 1.5rem;
-}
-.omniheader {
-    padding: 1px 10px 1px 10px;
-    color: white;
+nav.omniheader {
+    padding: 5px 10px 5px 10px;
     background: var(--maincolor);
     text-align: center;
-    align-items: center;
-    font: normal 100%/1.4 Menlo, sans;
 }
 
 
@@ -213,6 +216,7 @@ ol li:before {
     box-sizing: content-box;
     display: inline-block;
     padding: 1em 1.5em 1.5em 1em;
+    margin-top: 20px;
 }
 ul .linkli {
     color: var(--maincolor)

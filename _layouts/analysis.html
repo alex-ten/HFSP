@@ -3,7 +3,7 @@ layout: default
 ---
 
 <nav class=omniheader>
-    <ul class="nav {{include.navclass}}">
+    <ul class="ulnav">
         {% for section in site.data.anal_sections %}
         <li>
             <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html" class="{% if page.category == section.folder %}current{% else %}latent{% endif %}">{{section.title}}</a>

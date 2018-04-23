@@ -14,9 +14,17 @@
 
 <body>
     
-    <header class=omniheader>
-        <a href={{site.baseurl}}/index.html class=homelink> HFSP Project </a>
-        {% include nav.html navclass='nav-top' %}
+    <header>
+        <div id='headerdiv'><a href={{site.baseurl}}/index.html class=homelink> HFSP Project </a></div>
+
+        <nav class=omniheader>
+        <ul class="ulnav">
+            <li><a href="{{site.baseurl}}/content/analyses/index.html" class="{% if page.url contains 'analyses' %}current{% else %}latent{% endif %}">Analyses</a></li>
+            <li><a href="{{site.baseurl}}/content/materials/index.html" class="{% if page.url contains 'materials' %}current{% else %}latent{% endif %}">Materials</a></li>
+            <li><a href="{{site.baseurl}}/content/writeup/index.html" class="{% if page.url contains 'writeup' %}current{% else %}latent{% endif %}">Writeup</a></li>
+        </ul>
+        </nav>
+
     </header>
 
     {{content}}

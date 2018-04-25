@@ -5,7 +5,7 @@ doctype: entry
 entrynum: 2
 ---
 
-[Figure 2.1](#f-2-1) shows the relationship between switching and performance at a group level. The relationship is split by task, and different tasks are organized into rows. Within each task, there are two subplots that share an x-axis with each other. The x-axis represents the number of trials played on that task during the free play stage. The top subplot shows the probability of switching and the bottom one displays PC. Since this analysis is potentially revealing, I provide a detailed description of how the data going into this visualization was prepared [beneath](#description) the figure. 
+[Figure 2.1](#f-2-1){: .animated} shows the relationship between switching and performance at a group level. The relationship is split by task, and different tasks are organized into rows. Within each task, there are two subplots that share an x-axis with each other. The x-axis represents the number of trials played on that task during the free play stage. The top subplot shows the probability of switching and the bottom one displays PC. Since this analysis is potentially revealing, I provide a detailed description of how the data going into this visualization was prepared [beneath](#description){: .animated} the figure. 
 
 {% include caption.html 
     obj='figure' 
@@ -80,7 +80,7 @@ The mean vector across rows of this smoothed *outcome* array for each task is sh
 
 ---
 
-[Figure 2.2](#f-2-2) shows the same relationship more directly by plotting the probability of switching against PC. 
+[Figure 2.2](#f-2-2){: .animated} shows the same relationship more directly by plotting the probability of switching against PC. 
 
 {% include caption.html 
     obj='figure' 

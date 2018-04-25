@@ -1,0 +1,18 @@
+{% assign paths = include.path | split: '::' %}
+<div class='rslides_container'>
+    <ul class='rslides centered-btns centered-btns1' id='slider1' style='max-width=auto;'>
+        {% for p in paths%}
+            <li id='centered-btns1_s{{forloop.index0}}' class='' style='display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;'>
+                <a href='{{site.baseurl}}/{{p}}'>
+                    {% if include.thumbnails == null %}
+                        <img src='{{site.baseurl}}/{{p}}'>
+                    {% else %}
+                        <img src='{{site.baseurl}}/{{ p | replace: "img", "img_compressed" }}'>
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+        <a href="#" class="centered-btns_nav centered-btns1_nav prev">Previous</a>
+        <a href="#" class="centered-btns_nav centered-btns1_nav next">Next</a>
+</div>

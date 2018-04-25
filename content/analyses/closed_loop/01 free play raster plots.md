@@ -5,7 +5,7 @@ doctype: entry
 entrynum: 1
 ---
 
-Perhaps, visualizations in this section are not readily interpretable, but being the most literal representation of the raw, free play data available, they might inspire some ideas. Below, [Figure 1](#f-1) shows free play raster plots, one for each group / condition split. Each row is a separate subject in that group. The x-axis represents consequtive trials of free play, vertical marks represent *errors* and black diamonds represent switch trials (i.e. trials after which a subject switched to a different task). 
+Perhaps, visualizations in this section are not readily interpretable, but being the most literal representation of the raw, free play data available, they might inspire some ideas. Below, [Figure 1](#f-1){: .animated} shows free play raster plots, one for each group / condition split. Each row is a separate subject in that group. The x-axis represents consequtive trials of free play, vertical marks represent *errors* and black diamonds represent switch trials (i.e. trials after which a subject switched to a different task). 
 
 Additionally, subjects in each group / condition split were sorted by the number of switches and appear in that order on the plots (ascending order from top to bottom). Also, you can use the button at the bottom-right corner of the figure to view the same plots with an alternative coloring scheme, such that each task has a more a distinct color, but I find those too chaotic to look at.
 
@@ -38,4 +38,4 @@ Additionally, subjects in each group / condition split were sorted by the number
 - Unsurprisingly, trial sequences of 2D and R tasks seem to be more dense (with errors) than sequences of 1D and I1D.
 - Some participants (especially in the F/i+ group) tend to stick to one of the easy tasks (particularly, 1D) despite committing very few errors
 - S groups in each condition appear relatively denser and bluer. Somewhat counter-intuitively,  S/i+ subjects seem to have persisted with the R task despite making many errors. I would expect informed, strategically exploring participants to abandon the R task as soon as they identify it as unsolvable, which should be suggested by the chance-level amount of errors. Reflecting on that, I don't think sticking necessarily means less exploration in this context. One can explore the depth of one family instead of the range of different families. And in fact, that would be in line with the instruction to "" when the learnable tasks are learned.
-- Even after [filtering by oversticking]({{site.baseurl}}/content/analyses/outliers/index.html#1), a few subjects (like at the top of F/i+ and S/i- plots) still look like outliers.
+- Even after [filtering by oversticking]({{site.baseurl}}/content/analyses/outliers/index.html#1){: .animated}, a few subjects (like at the top of F/i+ and S/i- plots) still look like outliers.

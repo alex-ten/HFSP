@@ -3,13 +3,13 @@ layout: analysis
 ---
 
 <p>
-    Analyses are divided into four sections, each focusing on a different aspect of the data. Note, that the analyses and visualizations in all sections, except the <a href="{{site.baseurl}}/content/analyses/Outliers">Outliers</a> section, were performed with clean data that excluded the outliers.
+    Analyses are divided into four sections, each focusing on a different aspect of the data. Note, that the analyses and visualizations in all sections, except the <a href="{{site.baseurl}}/content/analyses/Outliers" class='animated'>Outliers</a> section, were performed with clean data that excluded the outliers.
 </p>
 
 <ul>
     {% for section in site.data.anal_sections %}
     <li class='linkli'>
-        <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html">{{section.title}}</a>
+        <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html" class='animated'>{{section.title}}</a>
     </li>
     {% include entries-list.html category=section.folder %}
 

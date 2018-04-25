@@ -2,12 +2,12 @@
 layout: default
 title: Materials
 ---
+{% include toc.html %}
 
-<a href='#1'></a>
 ## 1. Monster Task 
 
 ### 1.1. Task setup
-The general idea for this task is that there are 4 different monster families with a set of monsters contained in each. These monsters vary along different dimensions. For example, there is a family of monsters where each has a different height, or different widths – or both, as in [Figure 1](f-1).
+The general idea for this task is that there are 4 different monster families with a set of monsters contained in each. These monsters vary along different dimensions. For example, there is a family of monsters where each has a different height, or different widths – or both, as in [Figure 1](#f-1){: .animated}.
 
 {% include caption.html 
     obj='figure' 
@@ -62,7 +62,6 @@ There were 3 versions of this task run on Mechanical Turk:
 **Free Play Only** contained just the (1) free state.
 As indicated, the Strategic and Free Play with Familiarization Phase also each have 2 conditions. This condition only changed the instructions given to the participant. One condition explicitly stated that one of the monster families may have unpredictable food preferences. The other condition omitted this sentence.
 
-<a href='#2'></a>
 ## 2. Self-reports
 Participants were first asked one question at the end of training and a series of questions at the end of testing or free play. All questions were answered on 10-point Likert scale.
 
@@ -90,7 +89,6 @@ Final questions:
 6. *Future-learn-1*. Rate each monster family based on how much more you think you could learn if you had more time to play with it:
 > [1] Definitely Could Not Learn More -- [10] Definitely Could Learn More 
 
-<a href='#3'></a>
 ## 3. Raw data files
 The data was sorted based on the version that was run (Strategic, Free with Familiarization, Free Only). There are 2 data files contained in each folder (data, extra_data).
 Column meanings for the `data` file:

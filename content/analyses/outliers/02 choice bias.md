@@ -5,7 +5,7 @@ doctype: entry
 entrynum: 2
 ---
 
-Another way to find outliers is to see whether the subjects were choice-biased, or had a deviant preference towards one of the two possible responses across tasks. For each task within a subject, a single choice bias score was defined as the proportion of the number of choices of the more frequently chosen item. For instance, a choice bias score of .8 on any given task means that the subject chose one food item 80% of the time on that task. [Figure 2](#f-2) shows the sample distribution of *mean choice biases* across subjects, where mean choice bias of an individual subject is the average of choice biases across the four tasks.
+Another way to find outliers is to see whether the subjects were choice-biased, or had a deviant preference towards one of the two possible responses across tasks. For each task within a subject, a single choice bias score was defined as the proportion of the number of choices of the more frequently chosen item. For instance, a choice bias score of .8 on any given task means that the subject chose one food item 80% of the time on that task. [Figure 2](#f-2){: .animated} shows the sample distribution of *mean choice biases* across subjects, where mean choice bias of an individual subject is the average of choice biases across the four tasks.
 
 {% include caption.html 
     obj='figure' 
@@ -20,7 +20,7 @@ Another way to find outliers is to see whether the subjects were choice-biased, 
     - Food choices were invariable within tasks for a given subject.
     - A single choice bias score per task (within a subject) is calculated as  the proportion of choices of the  more frequently chosen food item. Since there are only two alternatives per task, the range for the score is [.5, 1.0].
     
-Different cutoff values and the corresponding outliers are listed in [Table 2](#t-2). The criterion of > 3 s.d. selects most of the subjects that form the small “islands” about the large bulk of data.
+Different cutoff values and the corresponding outliers are listed in [Table 2](#t-2){: .animated}. The criterion of > 3 s.d. selects most of the subjects that form the small “islands” about the large bulk of data.
 
 {% include caption.html 
     obj='table'

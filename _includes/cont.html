@@ -1,13 +1,4 @@
-<div class=loctoc>
-    <b style='color: var(--maincolor)'>Contents</b>
-    <ol>
-    {% for entry in site.pages %}
-        {% if entry.doctype == 'entry' and entry.category == include.category %}
-            <li class='linkli'><a href='#{{ entry.entrynum }}'>{{ entry.title }}</a></li>
-        {% endif %}
-    {% endfor %}
-    </ol>
-</div>
+{% include toc.html %}
 
 {% for entry in site.pages %}
     {% if entry.doctype == 'entry' and entry.category == include.category%}

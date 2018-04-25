@@ -2,7 +2,7 @@
   {% for entry in site.pages %}
     {% if entry.category == include.category and entry.doctype == 'entry' %}
     <li class='linkli'>
-    <a href="{{site.baseurl}}/content/analyses/{{include.category}}/index.html#{{entry.entrynum}}">
+    <a href="{{site.baseurl}}/content/analyses/{{include.category}}/index.html#{{entry.entrynum}}" class='animated'>
         {{entry.title}}
     </a>
     </li>

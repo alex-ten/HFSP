@@ -109,5 +109,5 @@ Column meanings for the `data` file:
 Column Meanings for the `extra_data` files:
 - **participant:assignmentId**: this is a unique identifier for each participant
 - **condition**: this indicates whether or not a participant was told that there is a monster family that has unpredictable food preferences, as described under Task Versions. (0 = text is shown to participant; 1 = text is NOT shown to participant)
-- The remaining columns in the `extra_data` file correspond to the questions described in [self-reports](#2). Each question has a shortened question ID that is listed in the square brackets next to the question text (future-learn-0, interested, complex, time, progress, rule, future-learn-1). All question responses are on a 10-point Likert scale.
+- The remaining columns in the `extra_data` file correspond to the questions described in [self-reports](#2-self-reports){: .animated}. Each question has a shortened question ID that is listed in the square brackets next to the question text (future-learn-0, interested, complex, time, progress, rule, future-learn-1). All question responses are on a 10-point Likert scale.
     - In the data columns, each question ID is also followed by which family the question was asking about. For example, interested-Bear would contain the responses given to the [interested] question for the Bear family.

@@ -15,21 +15,23 @@ Additionally, subjects in each group / condition split were sorted by the number
     num=page.entrynum 
     label='Raster plots depicting free play trials' %}
 
-<table class='rastergrid full-width'>
-    <tr>
-        <td><a href='{{site.baseurl}}/img/raster_plots_2colors-0-0.svg'><img alt='raster_plot_free_uninformed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-0-0.svg'/></a></td>
-        <td><a href='{{site.baseurl}}/img/raster_plots_2colors-0-1.svg'><img alt='raster_plot_free_informed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-0-1.svg'/></a></td>
-    </tr>
-    <tr>
-        <td><a href='{{site.baseurl}}/img/raster_plots_2colors-1-0.svg'><img alt='raster_plot_strategic_uninformed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-1-0.svg'/></a></td>
-        <td><a href='{{site.baseurl}}/img/raster_plots_2colors-1-1.svg'><img alt='raster_plot_strategic_informed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-1-1.svg'/></a></td>
-    </tr>
-    <tr>
-        <td colspan="2" align='center'>
-            <a class='switch'>colors 🎨</a>
-        </td>
-    </tr>
-</table>
+<div class='full-width'>
+    <table class='rastergrid'>
+        <tr>
+            <td><a href='{{site.baseurl}}/img/raster_plots_2colors-0-0.svg'><img alt='raster_plot_free_uninformed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-0-0.svg'/></a></td>
+            <td><a href='{{site.baseurl}}/img/raster_plots_2colors-0-1.svg'><img alt='raster_plot_free_informed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-0-1.svg'/></a></td>
+        </tr>
+        <tr>
+            <td><a href='{{site.baseurl}}/img/raster_plots_2colors-1-0.svg'><img alt='raster_plot_strategic_uninformed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-1-0.svg'/></a></td>
+            <td><a href='{{site.baseurl}}/img/raster_plots_2colors-1-1.svg'><img alt='raster_plot_strategic_informed' src='{{site.baseurl}}/img_compressed/raster_plots_2colors-1-1.svg'/></a></td>
+        </tr>
+        <tr>
+            <td colspan="2" align='center'>
+                <a class='switch'>colors 🎨</a>
+            </td>
+        </tr>
+    </table>
+</div>
 
 #### Notes:
 - Unsurprisingly, trial sequences of 2D and R tasks seem to be more dense (with errors) than sequences of 1D and I1D.

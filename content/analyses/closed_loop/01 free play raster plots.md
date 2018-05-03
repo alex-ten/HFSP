@@ -50,4 +50,6 @@ To verify that impression that the S group spent more time on more difficult tas
     label='Time spent on each task' %}
 [![Time spent on each task]({{site.baseurl}}/img_compressed/time_spent_boxplots.svg)]({{site.baseurl}}/img/time_spent_boxplots.svg)
 
-    
+#### Notes:
+- Whiskers correspond to minimum and maximum values.
+- More clearly we can see that the explicit instruction to maximize learning is associated with sticking to unsolvable task, mostly at the expense of spending time on the easiest task.

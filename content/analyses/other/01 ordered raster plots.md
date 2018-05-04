@@ -28,3 +28,8 @@ entrynum: 1
         </tr>
     </table>
 </div>
+
+#### Notes
+- The *vertical* colorbar represents the ordering of participants by dPC and the mapping of colors to values of dPC can be seen in the horizontal colorbar below the figures.
+- Only the average dPC across *learnable* tasks was used for ordering.
+- In the S groups, there might be a correlation between dPC and the number trials played on the R task. It seems like the upper right corners of S/i- and S/i+ are denser with errors from the random task. So group S subjects with higher dPC (might have) played the random task more than others at a later stage of the experiment. Perhaps, those are the ones who indeed tried to maximize their learning by quickly figuring out the learnable tasks, after which they reasonably stuck with the unlearned and unlearnable R task.

@@ -65,7 +65,7 @@ entrynum: 1
 #### Notes
 - Similarly to above, there seems to be a positive correlation between the number of trials played on the R task and PC. There seems to be a lot more red (thus, errors on 1D and I1D) at the lower portions of the F groups' graphs. This trend seems present, albeit less strikingly, in the F groups (and relatively more so in the S/i+).
 
-### 1.3 Discussion
+### 1.3. Discussion
 I don't see an obvious connection between playing the R task (often and badly) and better average performance on test trials. What seems plausible is that, due to the fact that the plots show errors, it *seems* like better learners prefer the R task, whereas in fact they simply learn the easier tasks efficiently and don't commit as many errors as poor learners do. In that case, the raster plots show a very obvious thing: that good learners commit less errors on learnable tasks than bad learners.
 
 These raster plots gave me an idea of characterizing exploration strategies of different individuals. We can look at performance *around* the switch trials for each participants. A good learning strategy would be to learn a task and switch to the yet unlearned task. This means that on average, the performance right before each switch should be better that performance right after each switch. Looking at the raster plots this might be a behavioral characteristic of efficient and poor learners, or learning-oriented and performance-oriented subjects. 

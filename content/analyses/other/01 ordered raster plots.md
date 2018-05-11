@@ -70,7 +70,8 @@ I don't see an obvious connection between playing the R task (often and badly) a
 
 These raster plots provide a hint on characterizing exploration strategies of different individuals. We can look at performance *around* the switch trials for each participant. A good learning strategy would be to learn a task and switch to the yet unlearned task. This means that on average, the performance right before each switch should be better than performance right after each switch. This might be a behavioral characteristic of efficient and poor learners, or learning-oriented and performance-oriented subjects.
 
-### 1.3. Is learning outcome related to task selection patterns?
+
+### 1.3. What might the learning outcome be related to?
 [Figure 1.3](#f-1-3){:.animated} shows dPC as a function of the percentage of the total number of trials spent on each task for each group and [Table 1.3](#t-1-3){:.animated} lists the summaries of models associated with each task / group split.
 
 {% include caption.html 
@@ -267,3 +268,12 @@ These raster plots provide a hint on characterizing exploration strategies of di
 - However, some general trends are interesting:
     - In both groups, there is a reversal of the slope from negative to positive as a function of task difficulty. So, subjects who played less of task 1D (or more of task R) had a slightly higher dPC.
     - Tasks 1D and R seem to be related: proportion of time spent on each task is similarly distributed in the F group, but changes for 1D and R tasks in the S group.
+    
+#### dPC and free play PC
+
+{% include caption.html 
+    obj='figure' 
+    num=page.entrynum
+    ext='4'
+    label='dPC and task selection' %}
+[![alt]({{site.baseurl}}/img_compressed/dpc_pc_by_task.svg)]({{site.baseurl}}/img/dpc_pc_by_task.svg)

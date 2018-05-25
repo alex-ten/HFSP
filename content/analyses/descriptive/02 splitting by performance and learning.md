@@ -43,5 +43,5 @@ In light of [Figure 2.1](#f-2-1){: .animated}, [Figure 2.2](#f-2-2){: .animated}
     label='Average PC during free-play split by group' %}
 [![alt]({{site.baseurl}}/img_compressed/smoothed_pc.svg)]({{site.baseurl}}/img/smoothed_pc.svg)
 
-### Notes
+#### Notes
 - The lines represent probability of a correct response as a function of trial number. The raw (and very noisy) probabilities curves are shown in opaque colors, and their liberally smoothed counterparts (rolling average over 10 trials) appear in more solid colors. The between-group difference can be seen even from the unsmoothed data curves.

@@ -27,7 +27,7 @@ For each subject I also calculated the average pre-switch and post-switch error 
 {% include caption.html 
     obj='table'
     num=page.entrynum 
-    label='Extreme sticker counts split by group and condition' %}
+    label='Average difference between pre- and post-switch error rates' %}
     
 |   | (a) filtering subjects | (b) filtering switch trials  |
 |:-:|:----------------------:|:----------------------------:|

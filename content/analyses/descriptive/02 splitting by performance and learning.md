@@ -32,7 +32,7 @@ Histograms in [Figure 2.1](#f-2-1){: .animated} show how the subjects from each 
     
 If we let [Figure 2.1](#f-2-1){: .animated}(c) guide the splitting of subjects by performance and learning outcome, it seems reasonable to perform a median split by performance, since no obvious bimodality is present. As for the learning outcome, we see that most of the people showed little to no improvement (between 0 and .2). There is a smaller group of people who did improve quite considerably (.2 or more), and an even smaller group that did worse. It is worth noting that when PC training and PC test are calculated over the same number of trials, the dPC score can be interpreted straightforwardly as the difference between the number of correct trials between test and training stages. Thus, the inclusive region between -.2 and .2 can be viewed as a "no change" region, and the regions above and below, as "improvement" and "deterioration' regions, respectively. Thus, it would make sense to divide people by learning outcome into 3 groups, but splitting more simply at .2 is also meaningful, as we could differentiate between "improvers" and "non-improvers".
 
-### 2.2. Group-level performance during free-play
+### 2.2. Overall group-level performance during free play
 
 In light of [Figure 2.1](#f-2-1){: .animated}, [Figure 2.2](#f-2-2){: .animated} seems interesting. The dPC distributions of F and S groups are virtually identical, yet we see and gradual increase of PC during free play in the F group, and a no such increase in the S group, which is the one that aims to maximize learning. I think this is in line with an idea that this group learns faster, and then, by virtue of being instructed to maximize learning sticks to the R task, thereby keeping PC over the entire free-play period constant (as suggested <a href='{{site.baseurl}}/content/analyses/other/index.html#13-what-might-the-learning-outcome-be-related-to' class='animated'>here</a>). 
 
@@ -45,3 +45,23 @@ In light of [Figure 2.1](#f-2-1){: .animated}, [Figure 2.2](#f-2-2){: .animated}
 
 #### Notes
 - The lines represent probability of a correct response as a function of trial number. The raw (and very noisy) probabilities curves are shown in opaque colors, and their liberally smoothed counterparts (rolling average over 10 trials) appear in more solid colors. The between-group difference can be seen even from the unsmoothed data curves.
+
+### 2.3. Group-level performance during free play split by task
+Each panel in [Figure 2.3](#f-2-3){: .animated} shows group-level performance on the corresponding task along with the proportion of subjects from that group who played that task. 
+
+{% include caption.html 
+    obj='figure' 
+    num=page.entrynum 
+    ext='3'
+    label='Average PC and %select during free-play split by group and task' %}
+[![alt]({{site.baseurl}}/img_compressed/smoothed_pc_free2.svg)]({{site.baseurl}}/img/smoothed_pc_free2.svg)
+
+#### Notes
+- Task selection:
+    - Most strikingly, the %select curve of 1D of the S group is entirely below that of the F group, and vice versa in case of task R. That is, at no point during free play, were there more people from the S group playing task 1D than there were people from the F group playing it. Similarly, at no point were there less S people playing the R task than there were F people playing it.
+    - The gaps between %select curves of the two groups from tasks 1D and R seem to be in phase. It seems like there are points of convergence immediately followed by divergence around trials 70 and 160. 
+    - We can also see that more people in the F group played I1D compared to the S group (particularly between trials 70 and 210)
+    - %select curves of the 2D task start diverging just before trial 150, after which, consistently, a higher proportion of people select this task in the S group than in the F group.
+- PC:
+    - Performance appears to be largely comparable between the 2 groups.
+    - For tasks 1D and I1D, subjects from the S group seem, rather consistently, to underperform compared to the F group. However, S group's absolute level of PC seems sufficiently high.

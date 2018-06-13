@@ -57,11 +57,16 @@ Each panel in [Figure 2.3](#f-2-3){: .animated} shows group-level performance on
 [![alt]({{site.baseurl}}/img_compressed/smoothed_pc_free2.svg)]({{site.baseurl}}/img/smoothed_pc_free2.svg)
 
 #### Notes
-- Task selection:
+- Task selection -- people in the S group challenge themselves more throughout the play phase:
     - Most strikingly, the %select curve of 1D of the S group is entirely below that of the F group, and vice versa in case of task R. That is, at no point during free play, were there more people from the S group playing task 1D than there were people from the F group playing it. Similarly, at no point were there less S people playing the R task than there were F people playing it.
     - The gaps between %select curves of the two groups from tasks 1D and R seem to be in phase. It seems like there are points of convergence immediately followed by divergence around trials 70 and 160. 
     - We can also see that more people in the F group played I1D compared to the S group (particularly between trials 70 and 210)
     - %select curves of the 2D task start diverging just before trial 150, after which, consistently, a higher proportion of people select this task in the S group than in the F group.
 - PC:
-    - Performance appears to be largely comparable between the 2 groups.
+    - Performance within each task appears to be grossly on the same level between the 2 groups.
     - For tasks 1D and I1D, subjects from the S group seem, rather consistently, to underperform compared to the F group. However, S group's absolute level of PC seems sufficiently high.
+    - Since PC (%correct) is 50% for the R task and ~90% for the 1D task for both F and S, the S group has substantially lower PC overall during the play phase (shown in [Figure 2.2](#f-2-2){: .animated})
+- I1D vs 2D task selection also differs by F/S, but only weakly:
+    - S group select the 2D slightly more, and the I1D slightly less.than the F group
+    - S group have slightly lower PC on the I1D task than the F group
+

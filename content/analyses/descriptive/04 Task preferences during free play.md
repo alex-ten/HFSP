@@ -32,19 +32,38 @@ In [Figure 4.1.1](#f-4-1-1){: .animated} I attempted to convey the same sort of 
 [![alt]({{site.baseurl}}/img_compressed/time_spent_on_each_task_radar_plots.svg)]({{site.baseurl}}/img/time_spent_on_each_task_radar_plots.svg)
 
 
-### 4.2. Predictors of free-play task preferences
-**Replot these with more salient significance highlighting**
+### 4.2. Predictors of free-play stage task preferences
+
+[Figure 4.2](#f-4-2){: .animated} shows how the proportion of time spent on each task during the free-play period relates to performance on other tasks during that period. 
 
 {% include caption.html 
-    obj='figure' 
-    num=page.entrynum
-    ext='3.1'
-    label='Time spent on task and PC (free play group)' %}
-[![alt]({{site.baseurl}}/img_compressed/stickiness_and_pc_F.svg)]({{site.baseurl}}/img/stickiness_and_pc_F.svg)
+            obj='figure' 
+            num=page.entrynum
+            ext='3'
+            label='Time spent on each task as a function of PC on other tasks during free-play' %}
+<table>
+    <tr>
+        <td align='center'>(a) Group F</td>
+        <td align='center'>(b) Group S</td>
+    </tr>
+    <tr>
+        <td align='center'>
+            <a href='{{site.baseurl}}/img/stickiness_and_pc_F.svg'><img src='{{site.baseurl}}/img_compressed/stickiness_and_pc_F.svg' alt='Time spent on task and PC (a)'></a>
+        </td>
+        <td align='center'>
+            <a href='{{site.baseurl}}/img/stickiness_and_pc_S.svg'><img src='{{site.baseurl}}/img_compressed/stickiness_and_pc_S.svg' alt='Time spent on task and PC (a)'></a>
+        </td>
+    </tr>
+</table>
 
-{% include caption.html 
-    obj='figure' 
-    num=page.entrynum
-    ext='3.2'
-    label='Time spent on task and PC (strategic group)' %}
-[![alt]({{site.baseurl}}/img_compressed/stickiness_and_pc_S.svg)]({{site.baseurl}}/img/stickiness_and_pc_S.svg)
+#### Notes
+- %correct is PC during the free-play stage.
+- For the 3 learnable tasks, %selection tends to be positively correlated with PC for the F group, but negatively correlated for the S group: consistent with the S group challenging themselves more.
+- The %selection of the 1D task is negatively correlated with PC on the I1D and 2D tasks (both F and S groups).
+- %selection of the R task is positive correlated with PC on the 1D and 2D tasks (both F and S groups).
+
+So, there is a general negative correlation between play stage PC and 1D preference, and positive correlation between PC and R preference (top row of each grid). However, **the interpretation is ambiguous**. Two candidate explanations were proposed:
+1. *Fast learners challenge themselves more*. Thus, people who learn I1D and 2D during training or in the beginning of free play challenge themselves by playing the R task more.
+2. *Self-challengers learn faster*. More driven people take on more difficult tasks and learn them faster as a result.
+
+The ambiguity lies in the cause of variability in initial learning. Are some people more lucky or are they more driven?

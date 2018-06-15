@@ -1,4 +1,4 @@
----
+  ---
 title: Learning performance as a function of initial performance
 category: descriptive
 doctype: entry

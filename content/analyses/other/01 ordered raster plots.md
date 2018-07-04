@@ -13,6 +13,7 @@ entrynum: 1
     ext='1'
     num=page.entrynum 
     label='Raster plots depicting free play trials (ordered by dPC)' %}
+<!--
 <div class='full-width'>
     <table class='rastergrid'>
         <tr>
@@ -30,6 +31,7 @@ entrynum: 1
         </tr>
     </table>
 </div>
+-->
 
 #### Notes
 - The *vertical* colorbar represents the ordering of participants by dPC and the mapping of colors to values of dPC can be seen in the horizontal colorbar below the figures.
@@ -44,6 +46,7 @@ entrynum: 1
     ext='1'
     num=page.entrynum 
     label='Raster plots depicting free play trials (ordered by test PC)' %}
+<!--
 <div class='full-width'>
     <table class='rastergrid'>
         <tr>
@@ -61,6 +64,7 @@ entrynum: 1
         </tr>
     </table>
 </div>
+-->
 
 #### Notes
 - Similarly to above, there seems to be a positive correlation between the number of trials played on the R task and PC. There seems to be a lot more red (thus, errors on 1D and I1D) at the lower portions of the F groups' graphs. This trend seems present, albeit less strikingly, in the F groups (and relatively more so in the S/i+).

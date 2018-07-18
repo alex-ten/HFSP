@@ -221,3 +221,22 @@ entrynum:
     ext='4'
     label='dPC and task selection' %}
 [![alt]({{site.baseurl}}/img_compressed/dpc_pc_by_task.svg)]({{site.baseurl}}/img/dpc_pc_by_task.svg)
+
+
+<p>
+    We could render the LaTeX document here with a link to the actual document and collaboration platform.
+</p>
+
+Here's an example of MathJax Jekyll integration:
+
+<pre class='codeblock'>
+{§ raw §}
+  $$a^2 + b^2 = c^2$$
+{§ endraw §}
+</pre>
+
+which is rendered like this:
+
+{% raw %}
+  $$a^2 + b^2 = c^2$$
+{% endraw %}

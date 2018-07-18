@@ -18,7 +18,7 @@ entrynum: 3
     num=page.entrynum
     ext='1.2'
     label='Trials histogram through time' %}
-[![alt]({{site.baseurl}}/img_compressed/sc_histogram_through_time.svg)]({{site.baseurl}}/img/sc_histogram_subjs_through_time.svg)
+[![alt]({{site.baseurl}}/img_compressed/sc_histogram_through_time.svg)]({{site.baseurl}}/img/sc_histogram_through_time.svg)
 
 {% include caption.html 
     obj='figure' 

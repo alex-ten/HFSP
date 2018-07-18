@@ -8,7 +8,7 @@ layout: analysis
 
 <ul>
     {% for section in site.data.anal_sections %}
-    <li class='linkli'>
+    <li>
         <a href="{{site.baseurl}}/content/analyses/{{section.folder}}/index.html" class='animated'>{{section.title}}</a>
     </li>
     {% include entries-list.html category=section.folder %}

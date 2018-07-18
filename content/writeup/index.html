@@ -1,21 +1,190 @@
 ---
 layout: default
+
 ---
 
-<p>
-    We could render the LaTeX document here with a link to the actual document and collaboration platform.
-</p>
+{% include toc.html %}
 
-Here's an example of MathJax Jekyll integration:
+<h2>1. Task description</h2>
+<p>
+    The active sampling task was designed to explore how adult human subjects organize their exploratory behavior in a relatively unconstrained setting. In this setting, the subjects were first familiarized with four classes (families) of stimuli (monsters) by guessing the subcategory (food preference) of each individual stimulus from each class and receiving immediate feedback on their responses. Specifically, each subject went through 4 blocks of 15 familiarization trials (one block per family) trying to figure out what food each individual monster preferred. </p>
+<p>
+    After familiarization, participants rated each family on the scale of Learnability (LRN) and proceeded to the next stage of free exploration. During free exploration, the subjects were required to perform at least 250 trials of the same food-guessing task. However, now they could willfully change which monster family to play on the next trial.</p>
+
+<h3>1.1. The problem space</h3>
+<p>
+    There were 2 unique food items per family. Individual monsters varied both within and across families. Monsters from different families varied grossly in their overall appearance (e.g. pink bunnies, orange squids, blue bears), while monsters from the same family differed more subtly, in up to 2 features of variation unique to their family (e.g. a bunny with long ears and big belly star and a bunny with shorter ears and small belly star).</p>
+<p>
+    In addition to the obvious variability in appearance between monster families, there was a subtler variability in the complexity of food preference classification. For example, in one condition, the monsters varied along a single dimension (e.g. height) which reliably predicted food preference (1D condition). In other conditions, monsters varied along 2 dimensions. In condition I1D (ignore 1 dimension), only one dimension was diagnostic of food preference, while the other was not, i.e. it corresponded with food preference 50% of time on average. In condition 2D, it was a certain <i>combination</i> of those dimensions that predicted food preferences. Finally, there was a random (R) condition in which each individual monster was randomly assigned a food preference on each trial. By design, learning to reliably predict food preferences of monsters by looking at their appearance was impossible in that condition.</p>
+<p>
+    The precise category structure of each of the learnable conditions is illustrated below. The features varied discretely over 6 possible values. For a given subject, the conditions were constant across monster families (e.g. blue bears were always 1D, while pink bunnies were always I1D). However, the mapping of conditions onto monster families differed between participants.</p>
 
 <pre class='codeblock'>
-{§ raw §}
-  $$a^2 + b^2 = c^2$$
-{§ endraw §}
+Condition 1D:
+                          A  A  A  B  B  B
+                          ----------------
+                          1  2  3  4  5  6
+                                 D1
+Condition I1D:
+                       6| A  A  A  B  B  B
+                       5| A  A  A  B  B  B
+                       4| A  A  A  B  B  B
+                    D2 3| A  A  A  B  B  B
+                       2| A  A  A  B  B  B
+                       1| A  A  A  B  B  B
+                         -----------------
+                          1  2  3  4  5  6
+                                 D1
+Condition 2D:
+                       6| B  B  B  B  B  B
+                       5| B  B  B  B  B  B
+                       4| A  A  A  A  B  B
+                    D2 3| A  A  A  A  B  B
+                       2| A  A  A  A  B  B
+                       1| A  A  A  A  B  B
+                         -----------------
+                          1  2  3  4  5  6
+                                 D1
 </pre>
 
-which is rendered like this:
 
-{% raw %}
-  $$a^2 + b^2 = c^2$$
-{% endraw %}
+<h2>2. Findings</h2>
+<h3>2.1. Sanity checks</h3>
+<p>
+    Before anything else, we wanted to verify that our manipulation of task difficulty worked as intended. To do that, we looked at a simple performance metric, the percentage of correct responses (<b>percent correct or PC</b>), at different points of time. <a href='#f-2-1' class='animated'>Figure 2.1</a> shows that the difficulty manipulation was meaningful in the sense that participants performed best on 1D, slightly worse on I1D, and worse still on 2D on training (leftmost column of plots).</p>
+
+<div class='caption' id='f-2-1'>
+    <em>
+        <b>Figure 2.1.</b> PC across subjects for each task split by group and conditions (N bins = 16)
+    </em>
+</div>
+<a href='{{site.baseurl}}/img/train_test_delta_hists_15_15_.svg'>
+    <img src='{{site.baseurl}}/img_compressed/train_test_delta_hists_15_15_.svg' alt='train_test_delta_hists_15_15'>
+</a>
+
+<p>
+    We also defined a test stage (here the last 15 trials of free play<sup id='backto1'><a href='#fn1' class='animated'>[1]</a></sup>) over which PC was measured (plots in the middle column). The difference between a participant's test-stage PC and training-stage PC provided an objective measure of performance improvement, delta PC (dPC). From <a href='#f-2-1' class='animated'>Figure 2.1</a> we can see that most people had positive dPC scores on 1D, meaning that the vast majority of people managed to improve on this task. As expected, more people improved less or even performed worse on I1D, as seen from a shallower and more laterally spread distribution of dPC on that task. This tendency was more prominent for 2D, with now a considerable portion of people falling below or close to 0.</p>
+
+<p>
+    There seems to be no differences in dPC between the two instructions groups (freely exploring vs. strategic, or F vs. S). This is rather interesting, given, as we show further, that different exploration strategies employed by the S and F groups.</p>
+
+
+<h3>2.2. Task selection during free play </h3>
+<p>
+    One interesting finding was that despite no differences in dPC between groups, their behavior during free play was quite distinct. For example, average PC per trial of free play increased steadily over this period for the F but not the S group (<a href='#f-2-2-1' class='animated'>Figure 2.2.1</a>)</p>
+
+<div class='caption' id='f-2-2-1'>
+    <em>
+        <b>Figure 2.2.1.</b> Average PC per trial during free play
+    </em>
+</div>
+<a href='{{site.baseurl}}/img/smoothed_pc.svg'>
+    <img src='{{site.baseurl}}/img_compressed/smoothed_pc.svg' alt='smoothed_pc'>
+</a>
+
+<p>
+    We investigated the pattern above further and found that it was due to F group's preference for easier tasks (especially 1D) and S group's preference of harder tasks (especially R). Consider <a href='#f-2-2-2' class='animated'>Figure 2.2.2</a>. The dotted selection curves indicate that consistently over the entire free play period, there was a higher proportion of people in the F group who played 1D than in the S group, and vice versa for the R task. Similar observations can be made for large of portions of the free-play period regarding I1D and 2D. Namely, consistently higher proportion of people played I1D in the F compared to S group (approximately trials 75 to 210, and vice versa for trials 140 onwards for 2D task).</p>
+
+
+<div class='caption' id='f-2-2-2'>
+    <em>
+        <b>Figure 2.2.2.</b> Average PC per trial and proportion of players on task during free play
+    </em>
+</div>
+<a href='{{site.baseurl}}/img/smoothed_pc_free2.svg'>
+    <img src='{{site.baseurl}}/img_compressed/smoothed_pc_free2.svg' alt='smoothed_pc_free2'>
+</a>
+
+<p>
+    These patterns seem to be expressed at the individual level, as shown in the histograms in <a href='#f-2-2-3' class='animated'>Figure 2.2.3</a>. Notice the group differences in 1D and R. There were more individuals in the F group than in the S group who played 1D 30% to 80% of their total free-play time. And similarly, there where more of those played the R task 30% to 90% of the time in the S group compared to the F group. Moreover, there were fewer people in the F group who spent little time on 1D, and there were fewer people in the S group who spent little time on R. Importantly, the histograms also show that in both groups, the amount of time people spend on each task ranges widely from 0% to 90%. If we consider the free exploration group to be a baseline, it seems that an instruction to learn as much as possible and anticipation of a test lead some people to play the easy 1D task less and the impossible R task more. </p>
+
+<div class='caption' id='f-2-2-3'>
+    <em>
+        <b>Figure 2.2.3.</b> Average PC per trial and proportion of players on task during free play
+    </em>
+</div>
+<a href='{{site.baseurl}}/img/histograms_of_time_spent_on_each_task.svg'>
+    <img src='{{site.baseurl}}/img_compressed/histograms_of_time_spent_on_each_task.svg' alt='histograms_of_time_spent_on_each_task' style="width: 50%; height:auto; display: block; margin: 0 auto;/">
+</a>
+
+
+<h3 id='s2.3'>2.3. A measure of self-challenge</h3>
+<p>
+    More people in the S group seem to challenge themselves (compared to the F group) by playing less of 1D and more of R. To characterize this more precisely, we operationalized the concept of self-challenge by introducing an interpretable baseline representing an appropriate level of self-challenge for learning the experiment's problem space efficiently.</p>
+
+<p>
+    The baseline challenge level is based on a simple principle: given some prior record of performance on a number of tasks (e.g. performance from familiarization stage), an appropriate level of challenge is provided by the easiest task that has not yet been learned. Choosing anything harder than this baseline is overchallenging, and choosing anything easier is underchallenging. Maintaining this baseline level of self-challenge is an efficient strategy for time-constrained exploration in a partially known problem space. It avoids wasting time on learned problems by signaling underchallenging choices. It also avoids being stuck with the impossible problem by driving people to towards the easiest unlearned tasks.</p>
+
+<p>
+    The baseline level of challenge can be computed at any trial. It is determined by two factors: the difficulty of the tasks, and whether or not the tasks are learned. At any given point in time, subjective task difficulty and the extend to which the task is learned can be approximated by the observed PC. Specifically, the easiest task is simply the one with the highest PC, the next easiest is the one with the next highest PC and so on. To determine whether a task is learned we need to make several assumptions. First we assume that when a task is completely unknown, the probability of guessing food preference correctly is .5 (since there are two food choices available). We can call this probability our null hypothesis (no learning has occurred) and use it as a single parameter of the binomial probability mass function to get the probability that the alternative hypothesis has occurred:
+
+    {% raw %}
+        $$Pr_{H_1}(n, k) = \binom{n}{k} \frac{1}{2^n}$$
+    {% endraw %}
+
+    where <i>n</i> is the number of trials played so far, and <i>k</i> is the number of correct responses. The quantity <i>Pr<sub>H<sub>1</sub></sub></i>, which we call <i>p</i>-value, tells us how likely are we to observe <i>k</i> hits in <i>n</i> trials if all responses were entirely random guesses. We can then select a threshold, e.g. 0.01 to tell us whether a certain PC over a certain number of trials counts as learning. In other words, we deem a task "learned" when the probability that the observed PC on that task came from random guessing is less than 1%. The use of <i>p</i>-values and a threshold also allowed us to define a <b>learning point</b>, which is the first trial on which learning as we define it has occurred.
+
+<p>
+    To verify that our threshold-based learning criterion works as intended, we looked at the amount of people who learned each task (<a href='#f-2-3-1' class='animated'>Figure 2.3.1</a>) as well as the average time of (the first) learning points for each task (<a href='#f-2-3-2' class='animated'>Figure 2.3.2</a>).</p>
+
+
+<div class='caption' id='f-2-3-1'>
+    <em><b>Figure 2.3.2.</b></em>
+</div>
+<table>
+    <tr>
+        <td align='center'>
+            (a)<br>Proportions of learners in each group by task
+        </td>
+        <td align='center'>
+            (b)<br>Average time of the first learning point (by learnable task)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href='{{site.baseurl}}/img/learners_bars.svg'>
+                <img src='{{site.baseurl}}/img_compressed/learners_bars.svg' alt='learners_bars'>
+            </a>
+        </td>
+        <td>
+            <a href='{{site.baseurl}}/img/learning_points.svg'>
+                <img src='{{site.baseurl}}/img_compressed/learning_points.svg' alt='learning_points'>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<p>
+    As you may have noticed in <a href='#f-2-3-1' class='animated'>Figure 2.3.1</a>, under 10% of people in both F and S groups learned the unlearnable task. Indeed, our definition of learning makes this paradox possible (although unlikely), but note also that the subjects did not know in advance which task was unlearnable, so having certain experiences with the R task could make an impression that the task could be and/or was learned. More importantly, we see the expected, difficulty-based decline in the the number of learners. Overall, it appears that the S group learned more, especially the hardest learnable 2D task. Subfigure (b) shows the average time (averaged across subjects) of the first learning point. Here, the F group shows the anticipated pattern where 1D is learned first, followed by I1D, followed by 2D. Compared to group F, people in the S group appear to have learned 1D later. It also seems like they sacrificed the play time for 1D in favor of exploring more difficult tasks. These group differences in learning outcomes appear to be related to the measure of self-challenge discussed next.</p>
+
+<p>
+    Having an operational criterion for learning proceeded to examine the levels of self-challenge relative to the baseline. Concretely, this <b>self-challenge index (SC)</b> corresponds to the difference between PC of the appropriately challenging task and PC of the actually chosen task. This score can be calculated on the level of trials, individuals, groups and so on. <a href='#f-2-3-2' class='animated'>Figure 2.3.1</a> shows the distributions of the SC score for individual trials, splitting them by group. It is important to note that following the baseline level of self-challenge sometimes implies that one should switch from the current task (whether because staying is under- or overchallenging) and sometimes that one should keep playing the current task (because it is the easiest task that hasn't yet been learned). Accordingly, we distinguish between switch and stay predictions and show them in the subpanels of <a href='#f-2-3-2' class='animated'>Figure 2.3.1</a></p>.
+
+<div class='caption' id='f-2-3-2'>
+    <em>
+        <b>Figure 2.3.2.</b> Distributions of SC scores at the trial level
+    </em>
+</div>
+<a href='{{site.baseurl}}/img/sc_histogram.svg'>
+    <img src='{{site.baseurl}}/img_compressed/sc_histogram.svg' alt='sc_histogram.svg'>
+</a>
+
+<p>
+    The figure shows there were more instances of overchallenging in the S group compared to the F group. We can also see that when people need to stay on the current task in order to maintain the baseline level of self-challenge they almost always do. However, when the baseline-challenge strategy requires switching, most of the choices are either underchallenging (indicating a bias to stick to the current task, even if performance is very consistently high) or overchallenging. Nevertheless, there is a distinct mode for the baseline level choices in both groups, showing that in many instances people did switch appropriately. Importantly, the S groups seems to underchallenge less and overchallenge more (relative to the baseline) compared to the F group, which is consistent with task selection observations in <a href='#2.2._Task_selection_during_free_play_' class='animated'>Section 2.2</a>.</p>
+
+
+
+
+
+
+
+
+
+<hr/>
+
+<b>Footnotes</b>
+<ol>
+    <li id='fn1'>
+        Elsewhere, the test stage was defined as a the last 5 trials of free play in order to include more data points. Because of the unconstrained nature of the free-play stage, not all subjects played all tasks, and the bigger the window of last <i>n</i> trials is used to calculate test PC, the more participants are excluded for not having a sufficient number of minimum trials played. <a href='#backto1' class='animated'>[back]</a>
+    </li>
+</ol>

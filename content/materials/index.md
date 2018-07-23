@@ -7,7 +7,7 @@ title: Materials
 ## 1. Monster Task 
 
 ### 1.1. Task setup
-The general idea for this task is that there are 4 different monster families with a set of monsters contained in each. These monsters vary along different dimensions. For example, there is a family of monsters where each has a different height, or different widths – or both, as in [Figure 1](#f-1){: .animated}.
+The goal of the active sampling task was up to the participants, although some of them received an explicit instruction to learn as much as possible about it. For them at least, the goal was to figure through trial and error out what food different monsters presented on the screen liked to eat. There were 4 different monster families.Monsters in each family varied along different dimensions. For example, within a family, an individual monster could have a unique height, or width, or both, as in [Figure 1](#f-1){: .animated} below:
 
 {% include caption.html 
     obj='figure' 
@@ -24,7 +24,7 @@ The general idea for this task is that there are 4 different monster families wi
     </tr>
 </table>
     
-The monsters can vary along 1 or 2 dimensions. For the 4 monster families, these dimensions determine what food preference a monster has. For example, the short monsters in a family could prefer pancakes while the tall monsters prefer waffles. Participants would then need to determine, based on a monster’s features, what food they preferred.
+The monsters can vary along 1 or 2 dimensions. These dimensions determined what food preferences monsters had. For example, in a family of blue bears, the short ones preferred pancakes while the tall ones preferred waffles. Participants would then need to determine, based on a monster’s features, what food they preferred.
 
 ### 1.2. Monster families and their food preferences
 Each monster family was randomly assigned how many dimensions determined their food preferences. In the [~~data file~~]() (not on the website yet), these are referred to as categories. These categories are:
@@ -91,7 +91,7 @@ Final questions:
 
 ## 3. Raw data files
 The data was sorted based on the version that was run (Strategic, Free with Familiarization, Free Only). There are 2 data files contained in each folder (data, extra_data).
-Column meanings for the `data` file:
+Column legend for the `data` file:
 - **participant:assignmentId**: this is a unique identifier for each participant
 - **condition**: this indicates whether or not a participant was told that there is a monster family that has unpredictable food preferences, as described under Task Versions. (0 = text is shown to participant; 1 = text is NOT shown to participant)
 - **stage**: this indicates what state the participant was in for this trial, as described under Task Versions (train, free, or test)
@@ -106,7 +106,7 @@ Column meanings for the `data` file:
 - **correct**: whether the participant was correct or not
 - **rt**: the response time of the participant after the monster and the food options were presented
 
-Column Meanings for the `extra_data` files:
+Column legend for the `extra_data` files:
 - **participant:assignmentId**: this is a unique identifier for each participant
 - **condition**: this indicates whether or not a participant was told that there is a monster family that has unpredictable food preferences, as described under Task Versions. (0 = text is shown to participant; 1 = text is NOT shown to participant)
 - The remaining columns in the `extra_data` file correspond to the questions described in [self-reports](#2-self-reports){: .animated}. Each question has a shortened question ID that is listed in the square brackets next to the question text (future-learn-0, interested, complex, time, progress, rule, future-learn-1). All question responses are on a 10-point Likert scale.

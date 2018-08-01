@@ -113,7 +113,7 @@ Condition 2D:
     More people in the S group seem to challenge themselves (compared to the F group) by playing less of 1D and more of R. To characterize this more precisely, we operationalized the concept of self-challenge by introducing an interpretable baseline representing an appropriate level of self-challenge for learning the experiment's problem space efficiently.</p>
 
 <p>
-    The baseline challenge level is based on a simple principle: given some prior record of performance on a number of tasks (e.g. performance from familiarization stage), an appropriate level of challenge is provided by the easiest task that has not yet been learned. Choosing anything harder than this baseline is overchallenging, and choosing anything easier is underchallenging. Maintaining this baseline level of self-challenge is an efficient strategy for time-constrained exploration in a partially known problem space. It avoids wasting time on learned problems by signaling underchallenging choices. It also avoids being stuck with the impossible problem by driving people to towards the easiest unlearned tasks.</p>
+    The baseline challenge level is based on a simple principle: given some prior record of performance on a number of tasks (e.g. performance from familiarization stage), an appropriate level of challenge is provided by the easiest task that has not yet been learned. Choosing anything harder than this baseline is considered overchallenging, and choosing anything easier is underchallenging. Maintaining this baseline level of self-challenge is an efficient strategy for time-constrained exploration in a partially known problem space. It avoids wasting time on learned problems by signaling underchallenging choices. It also avoids being stuck with the impossible problem by driving people to towards the easiest unlearned tasks.</p>
 
 <p>
     The baseline level of challenge can be computed at any trial. It is determined by two factors: the difficulty of the tasks, and whether or not the tasks are learned. At any given point in time, subjective task difficulty and the extend to which the task is learned can be approximated by the observed PC. Specifically, the easiest task is simply the one with the highest PC, the next easiest is the one with the next highest PC and so on. To determine whether a task is learned we need to make several assumptions. First we assume that when a task is completely unknown, the probability of guessing food preference correctly is .5 (since there are two food choices available). We can call this probability our null hypothesis (no learning has occurred) and use it as a single parameter of the binomial probability mass function to get the probability that the alternative hypothesis has occurred:
@@ -122,13 +122,29 @@ Condition 2D:
         $$Pr_{H_1}(n, k) = \binom{n}{k} \frac{1}{2^n}$$
     {% endraw %}
 
-    where <i>n</i> is the number of trials played so far, and <i>k</i> is the number of correct responses. The quantity <i>Pr<sub>H<sub>1</sub></sub></i>, which we call <i>p</i>-value, tells us how likely are we to observe <i>k</i> hits in <i>n</i> trials if all responses were entirely random guesses. We can then select a threshold, e.g. 0.01 to tell us whether a certain PC over a certain number of trials counts as learning. In other words, we deem a task "learned" when the probability that the observed PC on that task came from random guessing is less than 1%. The use of <i>p</i>-values and a threshold also allowed us to define a <b>learning point</b>, which is the first trial on which learning as we define it has occurred.
-
-<p>
-    To verify that our threshold-based learning criterion works as intended, we looked at the amount of people who learned each task (<a href='#f-2-3-1' class='animated'>Figure 2.3.1</a>) as well as the average time of (the first) learning points for each task (<a href='#f-2-3-2' class='animated'>Figure 2.3.2</a>).</p>
-
+    where <i>n</i> is the number of trials played so far, and <i>k</i> is the number of correct responses. The quantity <i>Pr<sub>H<sub>1</sub></sub></i>, which we call <i>p</i>-value, tells us how likely are we to observe <i>k</i> hits in <i>n</i> trials if all responses were entirely random guesses. The minimum <i>p</i>-values corresponded to subjective reports of the existence of a rule governing food preferences:</p>
 
 <div class='caption' id='f-2-3-1'>
+    <em>
+        <b>Figure 2.3.1.</b> p-values correspond to subjective ratings of the existence of a rule
+    </em>
+</div>
+<a href='{{site.baseurl}}/img/pval_cor_rule.svg'>
+    <img src='{{site.baseurl}}/img_compressed/pval_cor_rule.svg' alt='pval_cor_rule'
+         style='width: 60%; height:auto; display: block; margin: 0 auto;/'>
+</a>
+
+<p>
+    People who failed to learn a rule had much higher minimum <i>p</i>-values compared to those who reported to have learned a rule. This was true for the learnable tasks, but not for the R task. Interestingly, the difference in <i>p</i>-values between rule-absent (≤5) and rule-present (>5) ratings decreased as a function of task difficulty. People needed higher <i>p</i>-values to give low scores for 1D and I1D compared to 2D. At the same time, higher <i>p</i>-values were associated with rule-present scores for more difficult tasks. So, for harder tasks, <i>p</i>-value based performance was not as good an indicator of a rule as it is for simpler tasks. </p>
+
+<p>
+    The <i>p</i>-values can be used to define other measures of learning. We can select a threshold, e.g. 0.01 to tell us whether a certain PC over a certain number of trials counts as learning. In other words, we can consider a task "learned" when the probability that the observed PC on that task came from random guessing is less than 1%. The use of <i>p</i>-values and a threshold also allowed us to define a <b>learning point</b> as the first trial on which learning as we define it has occurred.</p>
+
+<p>
+    To verify that our threshold-based learning criterion works as intended, we looked at the amount of people who learned each task (<a href='#f-2-3-2' class='animated'>Figure 2.3.2.a </a>) as well as the average time of (the first) learning points for each task (<a href='#f-2-3-2' class='animated'>Figure 2.3.2.b</a>).</p>
+
+
+<div class='caption' id='f-2-3-2'>
     <em><b>Figure 2.3.2.</b></em>
 </div>
 <table>
@@ -158,11 +174,11 @@ Condition 2D:
     As you may have noticed in <a href='#f-2-3-1' class='animated'>Figure 2.3.1</a>, under 10% of people in both F and S groups learned the unlearnable task. Indeed, our definition of learning makes this paradox possible (although unlikely), but note also that the subjects did not know in advance which task was unlearnable, so having certain experiences with the R task could make an impression that the task could be and/or was learned. More importantly, we see the expected, difficulty-based decline in the the number of learners. Overall, it appears that the S group learned more, especially the hardest learnable 2D task. Subfigure (b) shows the average time (averaged across subjects) of the first learning point. Here, the F group shows the anticipated pattern where 1D is learned first, followed by I1D, followed by 2D. Compared to group F, people in the S group appear to have learned 1D later. It also seems like they sacrificed the play time for 1D in favor of exploring more difficult tasks. These group differences in learning outcomes appear to be related to the measure of self-challenge discussed next.</p>
 
 <p>
-    Having an operational criterion for learning proceeded to examine the levels of self-challenge relative to the baseline. Concretely, this <b>self-challenge index (SC)</b> corresponds to the difference between PC of the appropriately challenging task and PC of the actually chosen task. This score can be calculated on the level of trials, individuals, groups and so on. <a href='#f-2-3-2' class='animated'>Figure 2.3.2</a> shows the relationships between individual-level SC (averaged across trials) and the selection rate of each task. Data points were split by group and regression lines were fit for each split. Correlation coefficients and significance levels are also shown for pooled data.</p>
+    Having defined an operational criterion for learning, we proceeded to examine the levels of self-challenge relative to the baseline. Concretely, this <b>self-challenge index (SC)</b> corresponds to the difference between PC of the appropriately challenging task and PC of the task that was actually chosen. This score can be calculated on the level of trials, individuals, groups and so on. <a href='#f-2-3-3' class='animated'>Figure 2.3.3</a> shows the relationships between individual-level SC (averaged across trials) and the selection rate of each task. Data points were split by group and regression lines were fit for each split. Correlation coefficients and significance levels are also shown for pooled data.</p>
 
-<div class='caption' id='f-2-3-2'>
+<div class='caption' id='f-2-3-3'>
     <em>
-        <b>Figure 2.3.2.</b> Relationship between task selection rates and self-challenging
+        <b>Figure 2.3.3.</b> Relationship between task selection rates and self-challenging
     </em>
 </div>
 <a href='{{site.baseurl}}/img/sc_cor_sr.svg'>
@@ -182,27 +198,27 @@ Condition 2D:
     </ul>
 
 <p>
-    The lack of a relationship between the selection rate of 2D and SC suggest that participants in group S played this task without over- or underchallenging themselves, which could explain why learning 2D in that group tended to be better (see <a href='#f-2-3-2' class='animated'>Figure 2.3.2</a>).</p>
+    The lack of a relationship between the selection rate of 2D and SC suggest that participants in group S played this task without over- or underchallenging themselves, which could explain why learning 2D in that group tended to be slightly better (see <a href='#f-2-3-2' class='animated'>Figure 2.3.2</a>).</p>
 
 
 
 <p>
-    Next, <a href='#f-2-3-3' class='animated'>Figure 2.3.3</a> shows the distributions of the SC scores for individual trials, splitting them by group. It is important to note that following the baseline level of self-challenge sometimes implies that one should switch from the current task (whether because staying is under- or overchallenging) and sometimes that one should keep playing the current task (because it is the easiest task that hasn't yet been learned). Accordingly, we distinguish between switch and stay predictions and show them in the subpanels of <a href='#f-2-3-3' class='animated'>Figure 2.3.3</a></p>.
+    Next, <a href='#f-2-3-4' class='animated'>Figure 2.343</a> shows the distributions of the SC scores for individual trials, splitting them by group. It is important to note that following the baseline level of self-challenge sometimes implies that one should switch from the current task (whether because staying is under- or overchallenging) and sometimes that one should keep playing the current task (because it is the easiest task that hasn't yet been learned). Accordingly, we distinguish between switch and stay predictions and show them in the subpanels of <a href='#f-2-3-4' class='animated'>Figure 2.3.4</a></p>.
 
-<div class='caption' id='f-2-3-3'>
+<div class='caption' id='f-2-3-4'>
     <em>
-        <b>Figure 2.3.3.</b> Distributions of SC scores at the trial level
+        <b>Figure 2.3.4.</b> Distributions of SC scores at the trial level
     </em>
 </div>
 <a href='{{site.baseurl}}/img/sc_histogram.svg'>
-    <img src='{{site.baseurl}}/img_compressed/sc_histogram.svg' alt='sc_histogram'>
+    <img src='{{site.baseurl}}/img_compressed/sc_histogram.svg' alt='sc_histogram' style='width: 60%; height:auto; display: block; margin: 0 auto;/'>
 </a>
 
 <p>
     The figure shows that there were more instances of overchallenging in the S group compared to the F group. We can also see that when people need to stay on the current task in order to maintain the baseline level of self-challenge they almost always do. However, when the baseline-challenge strategy requires switching, behavior is more diverse: there are many instances of underchallenging (indicating a bias to stick to the current task, even if performance is very consistently high) and overchallenging. Nevertheless, there is a distinct mode for the baseline level choices in both groups, showing that in many instances people did switch appropriately. Importantly, the S groups seems to underchallenge less and overchallenge more (relative to the baseline) compared to the F group, which is again consistent with task selection observations in <a href='#2.2._Task_selection_during_free_play_' class='animated'>Section 2.2</a>. Note however, that these plots may obscure temporal patterns of SC (see below). </p>
 
 <p>
-    We also looked at how SC behaved at a group level over time. We first split all SC scores by group and within each group split them further by the number of tasks learned (learning breadth; <a href='#f-2-3-4' class='animated'>Figure 2.3.4</a>). That gave us 4 subgroups within each instruction group. Both instruction and learning breadth seem to have had an effect on the temporal trajectory of SC. </p>
+    We also looked at how SC behaved at a group level over time. We first split all SC scores by group and within each group split them further by the number of tasks learned (learning breadth; <a href='#f-2-3-5' class='animated'>Figure 2.3.5</a>). That gave us 4 subgroups within each instruction group. Both instruction and learning breadth seem to have had an effect on the temporal trajectory of SC. </p>
 
 <!--
 <div class='caption' id='f-2-3-4'>
@@ -214,25 +230,38 @@ Condition 2D:
     <img src='{{site.baseurl}}/img_compressed/sc_and_breadth_hardest.svg' alt='sc_and_breadth_hardest'>
 </a>
 -->
-<div class='caption' id='f-2-3-4'>
+<div class='caption' id='f-2-3-5'>
     <em>
-        Group-level SC over time split by number of tasks learned
+        <b>Figure 2.3.5.</b> Group-level SC over time split by number of tasks learned
     </em>
 </div>
 <a href='{{site.baseurl}}/img/sc_and_breadth_numtasks.svg'>
-    <img src='{{site.baseurl}}/img_compressed/sc_and_breadth_numtasks.svg' alt='sc_and_breadth_numtasks'>
+    <img src='{{site.baseurl}}/img_compressed/sc_and_breadth_numtasks.svg' alt='sc_and_breadth_numtasks' style='width: 60%; height:auto; display: block; margin: 0 auto;/'>
 </a>
 
 <p>
-    SC declined slowly over time across the board, except for the subgroup who haven't learned a single task (these are likely to be the people who over-played the R task, which hindered their progress on the other tasks). The observed gradual decrease might reflect a ceiling effect of our guessing game <a id='backto2' href='#fn2' class='animated'>[2]</a>. Specifically, note how the worst learners (1-task learners) in both groups underchallenged less than the best learners (3-tasks learners). Unless one commits to the R task after learning all learnable tasks, they will most likely underchallenge. And if learning of all learnable tasks happens early during free play, the good learners, who do not stick to the R task, will overchallenge for most of the free play.</p>
+    SC declined slowly over time across the board, except for the subgroup who haven't learned a single task (these are likely to be the people who over-played the R task, which hindered their progress on the other tasks). The observed gradual decrease might reflect a ceiling effect of our guessing game <a id='backto2' href='#fn2' class='animated'>[2]</a>. Specifically, note how the worst learners (1-task learners) in both groups underchallenged less than the best learners (3-tasks learners). This difference is because unless one commits to the R task after learning all learnable tasks, they will most likely underchallenge. So good learners who learn all tasks early, but don't stick to the R task afterwards, will underchallenge.</p>
 
 <p>
     Another striking difference between the groups is the variance of SC in the beginning of free play. In the freely exploring group, better learners start with baseline-challenge choices, while the worse learners overchallenge. The strategic group's instructions seem to have lead to a less diverse set of behaviors: good and bad learners alike start by overchallenging. Thus, in the most unconstrained setting of our study, the best learners happened to be the ones who followed the baseline strategy (until there was nothing else to learn), while worse learners were the ones who failed to maintain the appropriate level of challenge. However, when instructed to learn as much as possible about the problem space and informed about an upcoming test, most people started by playing tasks on which their performance was low. It appears that eventually (approximately by trial 50) some of these people realized their overchallenging behavior and switched to a more manageable task.</p>
 
 
+<p>
+    The pattern above suggests that exploration was more structured initially but became less coherent over time. So, earlier stages of free play could tell us more about exploration than later periods. Indeed, we can see a dramatic differences in the distributions of SC scores at the trial level for earlier trials (<a href='#f-2-3-6' class='animated'>Figure 2.3.6</a>) compared to all trials (<a href='#f-2-3-3' class='animated'>Figure 2.3.3</a>):</p>
 
+<div class='caption' id='f-2-3-3'>
+    <em>
+        <b>Figure 2.3.6.</b> Distributions of SC scores at the trial level (first 100 trials only)
+    </em>
+</div>
+<a href='{{site.baseurl}}/img/sc_histogram_first100.svg'>
+    <img src='{{site.baseurl}}/img_compressed/sc_histogram_first100.svg' alt='sc_histogram_first100' style='width: 60%; height:auto; display: block; margin: 0 auto;/'>
+</a>
 
+<p>
+    Isolating the first 100 trials reveals that our baseline-based model predicted switching on a higher proportion of trials (82%, compared to 75% when we looked at all trials). However, we can also see that most of these higher or lower than baseline challenge choices were close to the baseline, as indicated by high relative frequencies of SC scores close to 0. By ignoring the later trials of free play we especially decreased the relative frequency of underchallenging instances.</p>
 
+Does early SC predict learning?
 
 
 

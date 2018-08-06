@@ -6,6 +6,10 @@ title: Materials
 
 ## 1. Monster Task 
 
+Inria hosts its own version of the task, made AMT-agnostic: <a href='http://pstk.bordeaux.inria.fr/6' class='animated'>http://pstk.bordeaux.inria.fr/6</a>
+
+The only valid code at the moment is INRIA. Corresponding code is in the standalone branch of our repo.
+
 ### 1.1. Task setup
 The goal of the active sampling task was up to the participants, although some of them received an explicit instruction to learn as much as possible about it. For them at least, the goal was to figure through trial and error out what food different monsters presented on the screen liked to eat. There were 4 different monster families.Monsters in each family varied along different dimensions. For example, within a family, an individual monster could have a unique height, or width, or both, as in [Figure 1](#f-1){: .animated} below:
 

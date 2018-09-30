@@ -22,7 +22,7 @@ $$ \frac{Pr(Y_i = k)}{Pr(Y_i = k')} = w_{k,m}x_{m,i} $$
 
 where \\(x_{m,i}\\) is the \\(i\\)-th observation of \\(m\\)-th variable (e.g. percent correct), and \\(w_{k,m}\\) tells us how the odds of choosing task \\(k\\) relative to some reference (pivot) task \\(k'\\) changes along with variable \\(x_{m}\\).
 
-I tried this multinomial logistic regression approach with two percentage variables for a more straightforward interpretation. PC is the percent correct so far, and RT is the number of trials played on a task so far, normalized by the sum of all trials played so far. Note that the model considers predictor variable values of the task that is being played, ignoring the corresponding quantities of other tasks. I think this is a major drawback, which we should discuss. 
+I tried this multinomial logistic regression approach with two percentage variables for a more straightforward interpretation. PC is the percent correct over all trials on a task so far, and RT is the number of trials played on a task so far normalized by the sum of all trials played so far. Note that the model considers predictor variable values of the task that is being played, ignoring the corresponding quantities of other tasks. I think this is a major drawback, which we should discuss. 
 
 [Figure 1.1](#f-1-1){: .animated} below shows some of the results. Two models were fitted for each of the groups (I used the [statsmodels](https://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.MNLogit.html){: .animated} package to execute the fitting): 
 

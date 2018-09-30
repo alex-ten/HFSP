@@ -13,7 +13,7 @@ $$ u_{k,i} = b_k \cdot x_i $$
 
 Here, \\(u_{k,i}\\) is the utility of task \\(k\\) on trial \\(i\\), \\(x_i\\) is the vector of input variables PC and RT, and \\(b_k\\) is a vector of free parameters (one for each input variable) associated with task \\(k\\). The utility scores are in turn combined (via a softmax function) to yield a discrete probability distribution over the available choices:
 
-$$ Pr(Y_i = c | x_i) = \frac{e^{b_c \cdot x_i $$}}{\sum_{k=1}^{K}e^{b_k \cdot x_i $$}} $$
+$$ Pr(Y_i = c | x_i) = \frac{e^{b_c x_i}}{\sum_{k=1}^{K}e^{b_k x_i}} $$
 
 
 where the \\(Pr(Y_i = c \mid x_i)\\) is the probability of choosing task \\(c\\) on trial \\(i\\), given \\(x_i\\), that is equal to the exponent of the utility of task \\(c\\) on trial \\(i\\), normalized by the sum of the exponentiated utilities over all tasks. In addition to classification probabilities, the model's free parameters can be interpreted in a simple way to describe the relationships between predictors and task selection. The model gives us a set of K-by-M coefficients (one for each predictor-outcome pair), which when adjusted (pivoted) and exponentiated can be interpreted as the odds of choosing one task over another as the predictor changes in value. For example, coefficient \\(w_{k,m}\\) will give us:

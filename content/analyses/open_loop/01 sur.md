@@ -20,7 +20,7 @@ where the \\(Pr(Y_i = c \mid x_i)\\) is the probability of choosing task \\(c\\)
 
 $$ \frac{Pr(Y_i = k)}{Pr(Y_i = k')} = w_{k,m}x_{m,i} $$
 
-where \\(x_{m,i}\\) is the \\(i\\)-th observation of \\(m\\)-th variable (e.g. percent correct), and \\(w_{k,m}\\) tells us how the odds of choosing task \\(k\\) relative to some reference (pivot) task \\(k'\\) changes as variable \\(x_{m}\\).
+where \\(x_{m,i}\\) is the \\(i\\)-th observation of \\(m\\)-th variable (e.g. percent correct), and \\(w_{k,m}\\) tells us how the odds of choosing task \\(k\\) relative to some reference (pivot) task \\(k'\\) changes along with variable \\(x_{m}\\).
 
 I tried this multinomial logistic regression approach with two percentage variables for a more straightforward interpretation. PC is the percent correct so far, and RT is the number of trials played on a task so far, normalized by the sum of all trials played so far. Note that the model considers predictor variable values of the task that is being played, ignoring the corresponding quantities of other tasks. I think this is a major drawback, which we should discuss. 
 

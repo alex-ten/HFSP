@@ -67,4 +67,6 @@ Also interestingly, the S model's predictions seem to be consistent across diffe
 [![MNLogit model predictions]({{site.baseurl}}/img_compressed/predictions_for_rt.svg)]({{site.baseurl}}/img/predictions_for_rt.svg)
 
 ### Further steps
-The models tell us much about the relative quantities of predictor pairs followed by each task. As such it is not a good choice model.
+This kind of model tell us much about the relative quantities of predictor pairs followed by each task. As we can see in the confusion matrices, the model's predictive accuracy is quite good with certain classes. This accuracy, however, comes from the fact that there were far more repetition trials than switch trials. So rather than being a model for understanding task selection (i.e. what makes selection of a task more likely), it is a model for describing group-level tendencies of task stickiness. 
+
+As such, it is not a very good model of describing the task choices themselves. An interesting continuation would be to model exclusively the switch trials. This could be done at the group level, since the aggregate number of switch trials across a group op subjects will be sufficient conducting such an analysis. 

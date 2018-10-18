@@ -5,31 +5,17 @@ doctype: entry
 entrynum: 1
 ---
 
-Switches to:
-
+Switches from-to:
 <pre class='codeblock'>
 {% raw %}
-  1   2   3   4 
-464 523 547 589 
-{% endraw %}
-</pre>
-
-Switches from:
-<pre class='codeblock'>
-{% raw %}
-  1   2   3   4 
-478 529 560 556 
-{% endraw %}
-</pre>
-
-Switches from to:
-<pre class='codeblock'>
-{% raw %}
-      1   2   3   4
-  1   0 173 163 142
-  2 163   0 167 199
-  3 144 168   0 248
-  4 157 182 217   0
+    to
+from  1   2   3   4  sum
+  1   0 173 163 142  478
+  2 163   0 167 199  529
+  3 144 168   0 248  560
+  4 157 182 217   0  556
+  
+sum 464 523 547 589
 {% endraw %}
 </pre>
 

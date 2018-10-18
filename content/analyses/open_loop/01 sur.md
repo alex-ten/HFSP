@@ -140,10 +140,12 @@ Prediction   1   2   3   4
 ### Baselines
 <pre class='codeblock'>
 {% raw %}
-# Sample random choices 100 times and average accuracies across samples
-Random selection accuracy = 0.248670668953688
+# Sample random choices 100 times and 
+# average accuracies across samples
+accuracy = 0.248670668953688
 
-#
+# Baseline challenge predictions
+accuracy = 0.327315914489311
 {% endraw %}
 </pre>
 

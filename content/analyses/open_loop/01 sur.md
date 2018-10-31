@@ -5,176 +5,219 @@ doctype: entry
 entrynum: 1
 ---
 
+## The setup
 
-Switches from-to:
+In this section, I will describe some preliminary steps taken to perform model selection. As you remember, we are trying to find a good model of task choice, given a prior decision to end the current streak and choose a different task (i.e. considering "switch" trials only). I considered a multinomial logistic regression family of models that assume that a task with maximal value (or utility) is chosen amongst alternatives. The value is computed as a linear combination of individual-specific and task-specific predictors (see Yves Croissant's [tutorial](https://cran.r-project.org/web/packages/mlogit/vignettes/mlogit.pdf){: .animated} for more information on conditional logistic regression). For example, facing a set of choices, an individual might consider her current level of performance on each of the tasks or how interesting she finds the each of the tasks to be (alternative-specific variables). The choice might also be influenced by the individual characteristics, like group assignment (individual-specific variable).
+
+Given the exploratory nature of this effort, I have identified a set of 19 potentially interesting predictors. These include various measures of performance, time spent on each task, subjective ratings, and several other:
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 892px">
+<colgroup>
+<col style="width: 92px">
+<col style="width: 89px">
+<col style="width: 499px">
+<col style="width: 212px">
+</colgroup>
+  <tr>
+    <th class="tg-c3ow">Variable name</th>
+    <th class="tg-c3ow">Abbreviation</th>
+    <th class="tg-0pky">Description</th>
+    <th class="tg-c3ow">Values</th>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">current dummy</td>
+    <td class="tg-c3ow">currentd</td>
+    <td class="tg-0pky">Dummy variable for indexing the current task being played (the task played right before the switch)</td>
+    <td class="tg-c3ow">{0, 1}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">training order</td>
+    <td class="tg-c3ow">tord</td>
+    <td class="tg-0pky">Ordinal variable indexing the order in which the task appeared during training.</td>
+    <td class="tg-c3ow">{1,2,3,4}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">PC training</td>
+    <td class="tg-c3ow">pct</td>
+    <td class="tg-0pky">Continuous variable representing the hit rate over the training trials. In actuality, it's a discrete variable, due to a fixed number of training trials (same is true for other PC and PC-related measures).</td>
+    <td class="tg-c3ow">[0; 1]</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">PC rolling</td>
+    <td class="tg-c3ow">pcr</td>
+    <td class="tg-0pky">Continuous variable representing the hit rate over the last 5 trials of the most recent streak. If less than 5 trials were played before a switch, the score is derived by averaging by the number of trials played.</td>
+    <td class="tg-c3ow">[0; 1]</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">PC overall</td>
+    <td class="tg-c3ow">pc</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-c3ow">[0; 1]</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">P-value</td>
+    <td class="tg-c3ow">pval</td>
+    <td class="tg-0pky">Continuous variable representing the probability of current performance (PC overall) under a binomial distribution with 0.5 chance of success. I.e. the probability of the current hit rate, assuming no learning (random guessing).</td>
+    <td class="tg-c3ow">[0; 1]</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Relative time</td>
+    <td class="tg-c3ow">relt</td>
+    <td class="tg-0pky">Continuous variable representing the amount of time spent on a task relative to time spent on other tasks (i.e. time spent on tasks, normalized by the total play time)</td>
+    <td class="tg-c3ow">[0; 1]</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Self-challenge</td>
+    <td class="tg-c3ow">sc</td>
+    <td class="tg-0pky">Continuous variable representing the difference between the PC overall of the a task, and the PC overall of the task providing a baseline level of challenge. The baseline level of challenge is determined by whether the task was learned and its current success rate.</td>
+    <td class="tg-c3ow">[-1; 1]</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Self-challenge squared</td>
+    <td class="tg-c3ow">scsq</td>
+    <td class="tg-0pky">Continuous variable representing the deviation from baseline level of self-challenge (values close to 0 represent optimal challenge level, and those close to 1 represent either over- or under-challenging choices).</td>
+    <td class="tg-c3ow">[0; 1]</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Learnability 1</td>
+    <td class="tg-c3ow">lrn</td>
+    <td class="tg-0pky">Discrete variable representing the subjective rating of learnability of a task. This rating was given right after training and before free-play.</td>
+    <td class="tg-c3ow">minmax normalized {1, ..., 10}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Interest</td>
+    <td class="tg-c3ow">int</td>
+    <td class="tg-0pky">Discrete variable representing the subjective rating of interest in a task. This rating was given at the very end of the game.</td>
+    <td class="tg-c3ow">minmax normalized {1, ..., 10}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Complexity</td>
+    <td class="tg-c3ow">comp</td>
+    <td class="tg-0pky">Discrete variable representing the subjective rating of complexity of a task. This rating was given at the very end of the game.</td>
+    <td class="tg-c3ow">minmax normalized {1, ..., 10}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Time</td>
+    <td class="tg-c3ow">time</td>
+    <td class="tg-0pky">Discrete variable representing the subjective rating of time spent on a task over the free play period. This rating was given at the very end of the game.</td>
+    <td class="tg-c3ow">minmax normalized {1, ..., 10}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Progress</td>
+    <td class="tg-c3ow">prog</td>
+    <td class="tg-0pky">Discrete variable representing the subjective rating of progress made on a task over the free play period. This rating was given at the very end of the game.</td>
+    <td class="tg-c3ow">minmax normalized {1, ..., 10}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Rule</td>
+    <td class="tg-c3ow">rule</td>
+    <td class="tg-0pky">Discrete variable representing the subjective rating of the likelihood that a task had a rule for correct food choices. This rating was given at the very end of the game.</td>
+    <td class="tg-c3ow">minmax normalized {1, ..., 10}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Learnability 2</td>
+    <td class="tg-c3ow">lrn2</td>
+    <td class="tg-0pky">Discrete variable representing the subjective rating of learnability of a task. This rating was given at the very end of the game.</td>
+    <td class="tg-c3ow">minmax normalized {1, ..., 10}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Group</td>
+    <td class="tg-c3ow">grp</td>
+    <td class="tg-0pky">Discrete variable representing the group assignment. 0 represents no added instructions (Free play group) and 1 represents the inclusion additional instructions (Strategic group).</td>
+    <td class="tg-c3ow">{0, 1}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Trial</td>
+    <td class="tg-c3ow">trial</td>
+    <td class="tg-0pky">Discrete variable representing the number of trials played so far across all tasks.</td>
+    <td class="tg-c3ow">{1, 2, ..., N}</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Block trial</td>
+    <td class="tg-c3ow">blkt</td>
+    <td class="tg-0pky">Discrete variable representing the number of trials played in the current block (after the last switch).</td>
+    <td class="tg-c3ow">{1, 2, ..., N}</td>
+  </tr>
+</table>
+
+I have attempted to fit all partitions of the set these 19 predictors (resulting in 524,287 fitting attempts). Not all attempts were successful, due to strong correlations between some variables (e.g. pc and sc). Of all attempts, 196,603 were successful. Several variables from each successful fit were recorded, including:
+
+- Model formula (form), in [R's formula object format](https://www.rdocumentation.org/packages/mlogit/versions/0.3-0/topics/mFormula){: .animated}, e.g. `y ~ x1 + x2 + x3 | z1 + z2`
+- Number of variables  (nvars)
+- Log likelihood (loglik)
+- McFadden's R squared (mfR2). It is redundant, since it's derived from loglik, but the software provided it anyways, so there was no cost of computing it
+- Accuracy of predictions (number of correct predictions divided by the total number of predictions)
+- AIC
+- BIC
+
+## Statistics
+
+Below you can see several histograms of the recorded variables:
+
+<a href='{{site.baseurl}}/r/hist_loglikelihood.svg'><img src='{{site.baseurl}}/r/hist_loglikelihood.svg' alt='hist_AIC'></a>
+<a href='{{site.baseurl}}/r/hist_Accuracy.svg'><img src='{{site.baseurl}}/r/hist_Accuracy.svg' alt='hist_AIC'></a>
+<a href='{{site.baseurl}}/r/hist_AIC.svg'><img src='{{site.baseurl}}/r/hist_AIC.svg' alt='hist_AIC'></a>
+<a href='{{site.baseurl}}/r/hist_BIC.svg'><img src='{{site.baseurl}}/r/hist_BIC.svg' alt='hist_AIC'></a>
+
+There seems to be two clusters of models with better and worse performances. The models with AIC < 5,000 were the same as the ones with BIC < 5,000. Thus, I separated the better performing models (based on AIC < 5,000) to get a closer look at the distributions of performance metrics. There were 98,302 such models:
+
+<a href='{{site.baseurl}}/r/hist_loglikelihood_best.svg'><img src='{{site.baseurl}}/r/hist_loglikelihood_best.svg' alt='hist_AIC'></a>
+<a href='{{site.baseurl}}/r/hist_Accuracy_best.svg'><img src='{{site.baseurl}}/r/hist_Accuracy_best.svg' alt='hist_AIC'></a>
+<a href='{{site.baseurl}}/r/hist_AIC_best.svg'><img src='{{site.baseurl}}/r/hist_AIC_best.svg' alt='hist_AIC_best'></a>
+<a href='{{site.baseurl}}/r/hist_BIC_best.svg'><img src='{{site.baseurl}}/r/hist_BIC_best.svg' alt='hist_AIC_best'></a>
+
+Below are the top 10 models with lowest AIC (`1` on the righ-hand side of `|` of a formula means that no individual-specific variables were included):
+
 <pre class='codeblock'>
-{% raw %}
-    to
-from  1   2   3   4  sum
-  1   0 173 163 142  478
-  2 163   0 167 199  529
-  3 144 168   0 248  560
-  4 157 182 217   0  556
-  
-sum 464 523 547 589
-{% endraw %}
+                                                     form nvars    loglik  accuracy      AIC      BIC
+1121               nxt ~ currentd + pct + pval + time | 1     4 -2220.674 0.4578427 4455.348 4494.972
+1395              nxt ~ currentd + pval + time + prog | 1     4 -2220.730 0.4583137 4455.461 4495.085
+4658        nxt ~ currentd + pct + pval + time + prog | 1     5 -2217.421 0.4583137 4450.842 4496.127
+233                      nxt ~ currentd + pval + time | 1     3 -2225.194 0.4597268 4462.388 4496.352
+1396              nxt ~ currentd + pval + time + rule | 1     4 -2221.538 0.4569006 4457.077 4496.701
+4659        nxt ~ currentd + pct + pval + time + rule | 1     5 -2218.280 0.4531324 4452.561 4497.845
+4644         nxt ~ currentd + pct + pval + int + time | 1     5 -2218.473 0.4578427 4452.946 4498.230
+1388              nxt ~ currentd + pval + comp + time | 1     4 -2222.406 0.4512482 4458.811 4498.435
+4651        nxt ~ currentd + pct + pval + comp + time | 1     5 -2218.932 0.4507772 4453.863 4499.148
+14363 nxt ~ currentd + pct + pval + int + time + prog | 1     6 -2215.649 0.4559585 4449.299 4500.244
 </pre>
 
-## Model A:
-<pre class='codeblock'>
-{% raw %}
-  nxt ~ pval+relt+lrn+currentd|trial
-{% endraw %}
-</pre>
-
-### Both groups
-<pre class='codeblock'>
-{% raw %}
-Frequencies of alternatives:
-      1       2       3       4 
-0.21856 0.24635 0.25765 0.27744 
-
-nr method
-21 iterations, 0h:0m:0s 
-g'(-H)^-1g = 9.24E-07 
-gradient close to zero 
-
-Coefficients :
-                 Estimate  Std. Error z-value        Pr(>|z|)    
-2:(intercept)    0.025190    0.100500  0.2507         0.80208    
-3:(intercept)   -0.069515    0.103809 -0.6696         0.50308    
-4:(intercept)   -0.066357    0.107482 -0.6174         0.53699    
-pval             3.610880    0.564834  6.3928 0.0000000001629 ***
-relt            -1.465070    0.280948 -5.2147 0.0000001840692 ***
-currentd       -21.251133 1714.781548 -0.0124         0.99011    
-lrn              0.133571    0.070663  1.8902         0.05873 .  
-2:grp            0.142341    0.135979  1.0468         0.29520    
-3:grp            0.329378    0.135881  2.4240         0.01535 *  
-4:grp            0.284447    0.134800  2.1101         0.03485 *  
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Log-Likelihood: -2257.6
-McFadden R^2:  0.23088 
-Likelihood ratio test : chisq = 1355.4 (p.value = < 0.000000000000000222)
-{% endraw %}
-</pre>
+lowest BIC:
 
 <pre class='codeblock'>
-{% raw %}
-> cm$table
-          Reference
-Prediction   1   2   3   4
-         1  74  37  42  45
-         2 105 204  79  88
-         3 123 112 279  97
-         4 162 170 147 359
-
- Accuracy = 0.4314649 
-{% endraw %}
+                                                     form nvars    loglik  accuracy      AIC      BIC
+1121               nxt ~ currentd + pct + pval + time | 1     4 -2220.674 0.4578427 4455.348 4494.972
+1395              nxt ~ currentd + pval + time + prog | 1     4 -2220.730 0.4583137 4455.461 4495.085
+4658        nxt ~ currentd + pct + pval + time + prog | 1     5 -2217.421 0.4583137 4450.842 4496.127
+233                      nxt ~ currentd + pval + time | 1     3 -2225.194 0.4597268 4462.388 4496.352
+1396              nxt ~ currentd + pval + time + rule | 1     4 -2221.538 0.4569006 4457.077 4496.701
+4659        nxt ~ currentd + pct + pval + time + rule | 1     5 -2218.280 0.4531324 4452.561 4497.845
+4644         nxt ~ currentd + pct + pval + int + time | 1     5 -2218.473 0.4578427 4452.946 4498.230
+1388              nxt ~ currentd + pval + comp + time | 1     4 -2222.406 0.4512482 4458.811 4498.435
+4651        nxt ~ currentd + pct + pval + comp + time | 1     5 -2218.932 0.4507772 4453.863 4499.148
+14363 nxt ~ currentd + pct + pval + int + time + prog | 1     6 -2215.649 0.4559585 4449.299 4500.244
 </pre>
 
----
-
-### Group F
-<pre class='codeblock'>
-{% raw %}
-Frequencies of alternatives:
-      1       2       3       4 
-0.23093 0.24974 0.24765 0.27168 
-
-nr method
-21 iterations, 0h:0m:0s 
-g'(-H)^-1g = 4.17E-07 
-gradient close to zero 
-
-Coefficients :
-                 Estimate  Std. Error z-value  Pr(>|z|)    
-2:(intercept)    0.042419    0.100993  0.4200 0.6744711    
-3:(intercept)   -0.047004    0.107676 -0.4365 0.6624511    
-4:(intercept)   -0.017691    0.116385 -0.1520 0.8791857    
-pval             2.716531    0.826147  3.2882 0.0010083 ** 
-relt            -1.548118    0.422359 -3.6654 0.0002469 ***
-currentd       -21.252081 2552.818806 -0.0083 0.9933577    
-lrn              0.189717    0.102371  1.8532 0.0638489 .  
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Log-Likelihood: -1024.3
-McFadden R^2:  0.227 
-Likelihood ratio test : chisq = 601.6 (p.value = < 0.000000000000000222)
-{% endraw %}
-</pre>
+and highest accuracy:
 
 <pre class='codeblock'>
-{% raw %}
-> cm$table
-          Reference
-Prediction   1   2   3   4
-         1  45  23  34  32
-         2  55 102  47  50
-         3  48  35  94  31
-         4  73  79  62 147
-
- Accuracy = 0.4054336
-{% endraw %}
+                                                                                    form nvars    loglik  accuracy      AIC      BIC
+165018 nxt ~ currentd + tord + pcr + pc + pval + lrn + time + prog + rule | trial + blkt    11 -2216.793 0.4682054 4469.586 4571.476
+165810 nxt ~ currentd + tord + pcr + pval + sc + lrn + time + prog + rule | trial + blkt    11 -2216.793 0.4682054 4469.586 4571.476
+60915                     nxt ~ currentd + tord + pc + pval + time + prog + rule | trial     8 -2218.923 0.4686764 4463.845 4537.433
+61707                     nxt ~ currentd + tord + pval + sc + time + prog + rule | trial     8 -2218.923 0.4686764 4463.845 4537.433
+70332                     nxt ~ currentd + pc + pval + comp + time + prog + rule | trial     8 -2218.932 0.4686764 4463.864 4537.452
+71256                     nxt ~ currentd + pval + sc + comp + time + prog + rule | trial     8 -2218.932 0.4686764 4463.864 4537.452
+98970               nxt ~ currentd + tord + pc + pval + lrn + time + prog + rule | trial     9 -2218.821 0.4691474 4465.641 4544.889
+99894               nxt ~ currentd + tord + pval + sc + lrn + time + prog + rule | trial     9 -2218.821 0.4691474 4465.641 4544.889
+134643       nxt ~ currentd + tord + pcr + pc + pval + time + prog + rule | trial + blkt    10 -2216.843 0.4691474 4467.686 4563.916
+135567       nxt ~ currentd + tord + pcr + pval + sc + time + prog + rule | trial + blkt    10 -2216.843 0.4691474 4467.686 4563.916
+> -2216.843 0.4691474 4467.686 4563.916
 </pre>
-
----
-
-### Group S
-<pre class='codeblock'>
-{% raw %}
-Frequencies of alternatives:
-      1       2       3       4 
-0.20840 0.24357 0.26587 0.28216 
-
-nr method
-21 iterations, 0h:0m:0s 
-g'(-H)^-1g = 5.07E-07 
-gradient close to zero 
-
-Coefficients :
-                 Estimate  Std. Error z-value      Pr(>|z|)    
-2:(intercept)    0.159433    0.093621  1.7030     0.0885739 .  
-3:(intercept)    0.244975    0.098500  2.4870     0.0128808 *  
-4:(intercept)    0.182369    0.112038  1.6277     0.1035791    
-pval             4.417456    0.776722  5.6873 0.00000001291 ***
-relt            -1.428084    0.377489 -3.7831     0.0001549 ***
-currentd       -21.247715 2314.425959 -0.0092     0.9926751    
-lrn              0.085451    0.097943  0.8725     0.3829605    
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Log-Likelihood: -1232
-McFadden R^2:  0.23436 
-Likelihood ratio test : chisq = 754.24 (p.value = < 0.000000000000000222)
-{% endraw %}
-</pre>
-
-<pre class='codeblock'>
-{% raw %}
-          Reference
-Prediction   1   2   3   4
-         1  32  13   8  17
-         2  47 106  38  38
-         3  80  75 190  63
-         4  84  90  74 211
-
- Accuracy = 0.4622642
-{% endraw %}
-</pre>
-
----
-
-### Baselines
-<pre class='codeblock'>
-{% raw %}
-# Average accuracies across 100 random samples
-accuracy = 0.248670668953688
-
-# Baseline challenge predictions
-accuracy = 0.327315914489311
-{% endraw %}
-</pre>
-

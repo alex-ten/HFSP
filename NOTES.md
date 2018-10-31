@@ -240,3 +240,10 @@ which is rendered like this:
 {% raw %}
   $$a^2 + b^2 = c^2$$
 {% endraw %}
+
+<!--
+# Baseline challenge predictions
+accuracy = 0.327315914489311
+{% endraw %}
+</pre>
+-->

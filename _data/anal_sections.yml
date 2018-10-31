@@ -4,13 +4,11 @@
 - title: Descriptive
   folder: descriptive
 
-
-- title: Open Loop
-  folder: open_loop
-
-
 - title: Closed Loop
   folder: closed_loop
+
+- title: Modeling
+  folder: open_loop
 
 - title: Other
   folder: other

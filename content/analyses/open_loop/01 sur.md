@@ -58,7 +58,7 @@ Given the exploratory nature of this effort, I have identified a set of 19 poten
   <tr>
     <td class="tg-c3ow">PC overall</td>
     <td class="tg-c3ow">pc</td>
-    <td class="tg-0pky"></td>
+    <td class="tg-0pky">Continuous variable representing the hit rate over the entire time played so far on a task.</td>
     <td class="tg-c3ow">[0; 1]</td>
   </tr>
   <tr>
@@ -219,5 +219,4 @@ and highest accuracy:
 99894               nxt ~ currentd + tord + pval + sc + lrn + time + prog + rule | trial     9 -2218.821 0.4691474 4465.641 4544.889
 134643       nxt ~ currentd + tord + pcr + pc + pval + time + prog + rule | trial + blkt    10 -2216.843 0.4691474 4467.686 4563.916
 135567       nxt ~ currentd + tord + pcr + pval + sc + time + prog + rule | trial + blkt    10 -2216.843 0.4691474 4467.686 4563.916
-> -2216.843 0.4691474 4467.686 4563.916
 </pre>

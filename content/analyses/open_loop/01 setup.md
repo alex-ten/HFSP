@@ -5,7 +5,7 @@ doctype: entry
 entrynum: 1
 ---
 
-## The setup
+### The setup
 
 In this section, I will describe some preliminary steps taken to perform model selection. As you remember, we are trying to find a good model of task choice, given a prior decision to end the current streak and choose a different task (i.e. considering "switch" trials only). I considered a multinomial logistic regression family of models that assume that a task with maximal value (or utility) is chosen amongst alternatives. The value is computed as a linear combination of individual-specific and task-specific predictors (see Yves Croissant's [tutorial](https://cran.r-project.org/web/packages/mlogit/vignettes/mlogit.pdf){: .animated} for more information on conditional logistic regression). For example, facing a set of choices, an individual might consider her current level of performance on each of the tasks or how interesting she finds the each of the tasks to be (alternative-specific variables). The choice might also be influenced by the individual characteristics, like group assignment (individual-specific variable).
 
@@ -147,7 +147,7 @@ Given the exploratory nature of this effort, I have identified a set of 19 poten
   </tr>
 </table>
 
-I have attempted to fit all partitions of the set these 19 predictors (resulting in 524,287 fitting attempts). Not all attempts were successful, due to strong correlations between some variables (e.g. pc and sc). Of all attempts, 196,603 were successful. Several variables from each successful fit were recorded, including:
+I have attempted to fit all partitions of the set these 19 predictors (resulting in 524,287 fitting attempts). Not all attempts were successful, due to strong correlations between some variables (e.g. pc and sc). Of all attempts, 393,215 were successful. Several variables from each successful fit were recorded, including:
 
 - Model formula (form), in [R's formula object format](https://www.rdocumentation.org/packages/mlogit/versions/0.3-0/topics/mFormula){: .animated}, e.g. `y ~ x1 + x2 + x3 | z1 + z2`
 - Number of variables  (nvars)
@@ -156,67 +156,3 @@ I have attempted to fit all partitions of the set these 19 predictors (resulting
 - Accuracy of predictions (number of correct predictions divided by the total number of predictions)
 - AIC
 - BIC
-
-## Statistics
-
-Below you can see several histograms of the recorded variables:
-
-<a href='{{site.baseurl}}/r/hist_loglikelihood.svg'><img src='{{site.baseurl}}/r/hist_loglikelihood.svg' alt='hist_AIC'></a>
-<a href='{{site.baseurl}}/r/hist_Accuracy.svg'><img src='{{site.baseurl}}/r/hist_Accuracy.svg' alt='hist_AIC'></a>
-<a href='{{site.baseurl}}/r/hist_AIC.svg'><img src='{{site.baseurl}}/r/hist_AIC.svg' alt='hist_AIC'></a>
-<a href='{{site.baseurl}}/r/hist_BIC.svg'><img src='{{site.baseurl}}/r/hist_BIC.svg' alt='hist_AIC'></a>
-
-There seems to be two clusters of models with better and worse performances. The models with AIC < 5,000 were the same as the ones with BIC < 5,000. Thus, I separated the better performing models (based on AIC < 5,000) to get a closer look at the distributions of performance metrics. There were 98,302 such models:
-
-<a href='{{site.baseurl}}/r/hist_loglikelihood_best.svg'><img src='{{site.baseurl}}/r/hist_loglikelihood_best.svg' alt='hist_AIC'></a>
-<a href='{{site.baseurl}}/r/hist_Accuracy_best.svg'><img src='{{site.baseurl}}/r/hist_Accuracy_best.svg' alt='hist_AIC'></a>
-<a href='{{site.baseurl}}/r/hist_AIC_best.svg'><img src='{{site.baseurl}}/r/hist_AIC_best.svg' alt='hist_AIC_best'></a>
-<a href='{{site.baseurl}}/r/hist_BIC_best.svg'><img src='{{site.baseurl}}/r/hist_BIC_best.svg' alt='hist_AIC_best'></a>
-
-Below are the top 10 models with lowest AIC (`1` on the righ-hand side of `|` of a formula means that no individual-specific variables were included):
-
-<pre class='codeblock'>
-                                                     form nvars    loglik  accuracy      AIC      BIC
-1121               nxt ~ currentd + pct + pval + time | 1     4 -2220.674 0.4578427 4455.348 4494.972
-1395              nxt ~ currentd + pval + time + prog | 1     4 -2220.730 0.4583137 4455.461 4495.085
-4658        nxt ~ currentd + pct + pval + time + prog | 1     5 -2217.421 0.4583137 4450.842 4496.127
-233                      nxt ~ currentd + pval + time | 1     3 -2225.194 0.4597268 4462.388 4496.352
-1396              nxt ~ currentd + pval + time + rule | 1     4 -2221.538 0.4569006 4457.077 4496.701
-4659        nxt ~ currentd + pct + pval + time + rule | 1     5 -2218.280 0.4531324 4452.561 4497.845
-4644         nxt ~ currentd + pct + pval + int + time | 1     5 -2218.473 0.4578427 4452.946 4498.230
-1388              nxt ~ currentd + pval + comp + time | 1     4 -2222.406 0.4512482 4458.811 4498.435
-4651        nxt ~ currentd + pct + pval + comp + time | 1     5 -2218.932 0.4507772 4453.863 4499.148
-14363 nxt ~ currentd + pct + pval + int + time + prog | 1     6 -2215.649 0.4559585 4449.299 4500.244
-</pre>
-
-lowest BIC:
-
-<pre class='codeblock'>
-                                                     form nvars    loglik  accuracy      AIC      BIC
-1121               nxt ~ currentd + pct + pval + time | 1     4 -2220.674 0.4578427 4455.348 4494.972
-1395              nxt ~ currentd + pval + time + prog | 1     4 -2220.730 0.4583137 4455.461 4495.085
-4658        nxt ~ currentd + pct + pval + time + prog | 1     5 -2217.421 0.4583137 4450.842 4496.127
-233                      nxt ~ currentd + pval + time | 1     3 -2225.194 0.4597268 4462.388 4496.352
-1396              nxt ~ currentd + pval + time + rule | 1     4 -2221.538 0.4569006 4457.077 4496.701
-4659        nxt ~ currentd + pct + pval + time + rule | 1     5 -2218.280 0.4531324 4452.561 4497.845
-4644         nxt ~ currentd + pct + pval + int + time | 1     5 -2218.473 0.4578427 4452.946 4498.230
-1388              nxt ~ currentd + pval + comp + time | 1     4 -2222.406 0.4512482 4458.811 4498.435
-4651        nxt ~ currentd + pct + pval + comp + time | 1     5 -2218.932 0.4507772 4453.863 4499.148
-14363 nxt ~ currentd + pct + pval + int + time + prog | 1     6 -2215.649 0.4559585 4449.299 4500.244
-</pre>
-
-and highest accuracy:
-
-<pre class='codeblock'>
-                                                                                    form nvars    loglik  accuracy      AIC      BIC
-165018 nxt ~ currentd + tord + pcr + pc + pval + lrn + time + prog + rule | trial + blkt    11 -2216.793 0.4682054 4469.586 4571.476
-165810 nxt ~ currentd + tord + pcr + pval + sc + lrn + time + prog + rule | trial + blkt    11 -2216.793 0.4682054 4469.586 4571.476
-60915                     nxt ~ currentd + tord + pc + pval + time + prog + rule | trial     8 -2218.923 0.4686764 4463.845 4537.433
-61707                     nxt ~ currentd + tord + pval + sc + time + prog + rule | trial     8 -2218.923 0.4686764 4463.845 4537.433
-70332                     nxt ~ currentd + pc + pval + comp + time + prog + rule | trial     8 -2218.932 0.4686764 4463.864 4537.452
-71256                     nxt ~ currentd + pval + sc + comp + time + prog + rule | trial     8 -2218.932 0.4686764 4463.864 4537.452
-98970               nxt ~ currentd + tord + pc + pval + lrn + time + prog + rule | trial     9 -2218.821 0.4691474 4465.641 4544.889
-99894               nxt ~ currentd + tord + pval + sc + lrn + time + prog + rule | trial     9 -2218.821 0.4691474 4465.641 4544.889
-134643       nxt ~ currentd + tord + pcr + pc + pval + time + prog + rule | trial + blkt    10 -2216.843 0.4691474 4467.686 4563.916
-135567       nxt ~ currentd + tord + pcr + pval + sc + time + prog + rule | trial + blkt    10 -2216.843 0.4691474 4467.686 4563.916
-</pre>

@@ -82,5 +82,3 @@ blkt         0.0001163 0.00006268    1.855  6.357e-02
 pcr          0.0001102 0.00006268    1.759  7.863e-02
 lrn         -0.0002819 0.00006268   -4.497  6.896e-06
 </pre>
-
-The ranking of the most important variables was preserved. 

@@ -1,9 +1,11 @@
 ---
-title: Effects of IVs on model performance metrics
+title: Assessing quality of predictors
 category: open_loop
 doctype: entry
 entrynum: 3
 ---
+
+### 3.1. Effects of variable inclusion on model performance
 
 Next, I took a more systematic approach to examining the effects of individual predictors on model performance. A quick way to do this would be to fit a linear regression model of all predictor variables on a dependent performance metric (e.g. AIC). If we regress binary variables (0 = excluded from model, 1 included in model) on AIC, we can interpret the resulting coefficients as linear effects of including them on the relative estimated Kullback-Leibler distance between the corresponding model and the true model of our data:
 
@@ -82,3 +84,102 @@ blkt         0.0001163 0.00006268    1.855  6.357e-02
 pcr          0.0001102 0.00006268    1.759  7.863e-02
 lrn         -0.0002819 0.00006268   -4.497  6.896e-06
 </pre>
+
+### 3.2. Model weighting
+
+The analyses in the previous section give us some idea about the relative importance of different variables, but tell us little about their particular effects on the dependent variable in question, the task choices. For that, we need to look at individual models. However, since we have taken an all-subset approach, we have many models, some of which are not much different from each other. This can be seen by examining the differences between the AIC score of each model and the minimum AIC score of the set:
+
+$$ \Delta_i = AIC_i - AIC_{min} $$
+
+Conventionally, a score less than 2 indicates a lack of sufficient differences between the models to select one over the other. In our set, there were 41 models at a distance less than 2 from the lowest-AIC model. Another useful measure that tells us of the relative quality of individual models is Akaike weight (<a href='{{base.url}}/pdfs/SymondsMoussalli_2011_ModelSelection.pdf' class='animated'>Symonds & Moussalli, 2011</a>):
+
+$$ w_i = \frac{ \exp (-\frac{1}{2} \Delta_i)}{\sum_{r=1}^{R} \exp(-\frac{1}{2} \Delta_r)} $$
+
+where $$ \exp (-\frac{1}{2} \Delta_i) $$ is proportional to the relative likelihood of model $$ i $$, and $$ R $$ is the number of models in the set. The closer a model is to the lowest-AIC model, the higher its weight, relative to all others. The problem in our case is a big amount of models, and thus, very low weights even for the best models:
+
+<pre class='codeblock'>
+rank         AIC      delta            w
+   1   4348.7521 0.00000000 0.0034711807
+   2   4349.0986 0.34651244 0.0029189926
+   3   4349.2057 0.45361657 0.0027667864
+   4   4349.3109 0.55886515 0.0026249510
+   5   4349.5450 0.79297337 0.0023349912
+   6   4349.7901 1.03798690 0.0020657665
+...
+
+</pre>
+
+This can't be helped by restricting the set of models to those with lower AIC values (by AIC < 5,000 criterion). So, there is considerable uncertainty as to which model should be selected. Since AIC makes no assumptions about whether the true model is in the set of fitted models, and since (I think) it is safe to assume that in fact none of the models we have come up with is in fact the true model, we should use all of the evidence we have on our hands. That is, we can use Akaike weights of all models to weight the fitted parameters of the full model with all 19 variables (though not very elegant, can be appropriate in exploratory model selection exercises <a href='{{base.url}}/pdfs/SymondsMoussalli_2011_ModelSelection.pdf' class='animated'>Symonds & Moussalli, 2011</a>).
+
+Concretely, we can add up Akaike weights across models that included each of the variables to obtain predictor weights:
+
+<a href='{{site.baseurl}}/r/param_weights.svg'><img src='{{site.baseurl}}/r/param_weights.svg' alt='Akaike_param_weights'></a>
+
+Fitting a full model was not possible due to very high correlation between `pc` and `sc`, so a model excluding `sc` was fitted as the full model. Here is the summary of this model:
+
+<pre class='codeblock'>
+Coefficients :
+                    Estimate     Std. Error  z-value     Pr(>|z|)    
+2:(intercept)   -0.037099997    0.217001019 -0.17097     0.864250    
+3:(intercept)   -0.137904928    0.226420916 -0.60906     0.542482    
+4:(intercept)   -0.336228004    0.235045680 -1.43048     0.152579    
+currentd       -21.139031605 1699.998818113 -0.01243     0.990079    
+tord            -0.018274009    0.022089252 -0.82728     0.408078    
+pct              0.442487977    0.345457553  1.28088     0.200238    
+pcr             -0.164640265    0.161930457 -1.01673     0.309280    
+pc              -0.202412645    0.506988647 -0.39924     0.689713    
+pval             3.191226202    0.713099546  4.47515 0.0000076358 ***
+relt            -3.273171784    0.333599191 -9.81169   < 2.22e-16 ***
+scsq            -0.768264568    0.569458767 -1.34911     0.177300    
+lrn              0.116491164    0.078847232  1.47743     0.139561    
+int              0.143778877    0.070103372  2.05096     0.040271 *  
+comp             0.061745518    0.135710540  0.45498     0.649124    
+time             0.869563665    0.079529359 10.93387   < 2.22e-16 ***
+prog             0.165318302    0.120715421  1.36949     0.170847    
+rule             0.132016048    0.127191668  1.03793     0.299303    
+lrn2             0.096779392    0.072237927  1.33973     0.180333    
+2:grp            0.028532379    0.140604217  0.20293     0.839192    
+3:grp            0.137169437    0.141739888  0.96775     0.333167    
+4:grp            0.013584480    0.143135945  0.09491     0.924389    
+2:trial          0.000361129    0.001053761  0.34270     0.731820    
+3:trial          0.000182237    0.001081334  0.16853     0.866167    
+4:trial          0.001391273    0.001103615  1.26065     0.207435    
+2:blkt           0.001137344    0.002855512  0.39830     0.690411    
+3:blkt          -0.000273179    0.002826106 -0.09666     0.922994    
+4:blkt           0.002336238    0.002962794  0.78853     0.430390    
+</pre>
+
+And here are the weighted coefficients:
+
+<pre class='codeblock'>
+             ind           values
+1  2:(intercept)  -0.037099996980
+2  3:(intercept)  -0.137904928051
+3  4:(intercept)  -0.336228003637
+4       currentd -21.139031604590
+5           tord  -0.005854365322
+6            pct   0.213721925746
+7            pcr  -0.075054980709
+8             pc  -0.049975019357
+9           pval   3.191128367691
+10          relt  -3.273171784355
+11          scsq  -0.189682007027
+12           lrn   0.072604351775
+13           int   0.068320624565
+14          comp   0.048465197772
+15          time   0.260456813165
+16          prog   0.165318302263
+17          rule   0.088075559417
+18          lrn2   0.043655535170
+19         2:grp   0.015367266258
+20         3:grp   0.073878146671
+21         4:grp   0.007316471164
+22       2:trial   0.000030178123
+23       3:trial   0.000015228784
+24       4:trial   0.000116263114
+25        2:blkt   0.000266034654
+26        3:blkt  -0.000063899030
+27        4:blkt   0.000546466308
+</pre>
+
+<a href='{{site.baseurl}}/r/weighted_coeffs.svg'><img src='{{site.baseurl}}/r/weighted_coeffs.svg' alt='weighetd_coeffs'></a>

@@ -31,7 +31,7 @@ blkt            4.3069     0.2928    14.7079  5.907e-49
 (Intercept)  5763.8200     0.6548  8802.4410  0.000e+00
 </pre>
 
-Since all predictor variables are binary, we can directly compare the coefficients. Predictors `currentd`, `relt`, `time`, `pval`, and `int` had the largest effects negative effects on AIC (i.e. decreased the distance to the true model the most). Although the 10 best AIC-ranked models were not the same as the best BIC-ranked models, the relative importance of the predictors was the same when the variable inclusion data was regressed on BIC:
+Since all predictor variables are binary, we can directly compare the coefficients. Predictors `currentd`, `relt`, `time`, `pval`, and `int` had the largest negative effects on AIC (i.e. decreased the distance to the true model the most). Although the 10 best AIC-ranked models were not the same as the best BIC-ranked models, the relative importance of the predictors was the same when the variable inclusion data was regressed on BIC:
 
 <pre class='codeblock'>
                Estimate Std. Error    t value   Pr(>|t|)

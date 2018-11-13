@@ -7,7 +7,7 @@ entrynum: 3
 
 ### 3.1. Effects of variable inclusion on model performance
 
-Next, I took a more systematic approach to examining the effects of individual predictors on model performance. A quick way to do this would be to fit a linear regression model of all predictor variables on a dependent performance metric (e.g. AIC). If we regress binary variables (0 = excluded from model, 1 included in model) on AIC, we can interpret the resulting coefficients as linear effects of including them on the relative estimated Kullback-Leibler distance between the corresponding model and the true model of our data:
+Next, I took a more systematic approach to examining the effects of individual predictors on model performance. A quick way to do this is to fit a linear regression model of all predictor variables on a dependent performance metric (e.g. AIC). If we regress binary variables (0 = excluded from model, 1 included in model) on AIC, we can interpret the resulting coefficients as linear effects of including them on the relative estimated Kullback-Leibler distance between the corresponding model and the true model of our data:
 
 <pre class='codeblock'>
               Estimate Std. Error    t value   Pr(>|t|)

@@ -109,7 +109,7 @@ rank         AIC      delta            w
 
 </pre>
 
-This can't be helped by restricting the set of models to those with lower AIC values (by AIC < 5,000 criterion). So, there is considerable uncertainty as to which model should be selected. Since AIC makes no assumptions about whether the true model is in the set of fitted models, and since (I think) it is safe to assume that in fact none of the models we have come up with is in fact the true model, we should use all of the evidence we have on our hands. That is, we can use Akaike weights of all models to weight the fitted parameters of the full model with all 19 variables (though not very elegant, can be appropriate in exploratory model selection exercises <a href='{{site.url}}/pdfs/SymondsMoussalli_2011_ModelSelection.pdf' class='animated'>Symonds & Moussalli, 2011</a>).
+This can't be helped by restricting the set of models to those with lower AIC values (by AIC < 5,000 criterion). So, there is considerable uncertainty as to which model should be selected. Since AIC makes no assumptions about whether the true model is in the set of fitted models, and since (I think) it is safe to assume that in fact none of the models we have come up with is in fact the true model, we should use all of the evidence we have on our hands. That is, we can use Akaike weights of all models to weight the fitted parameters of the full model with all 19 variables (though not very elegant, can be appropriate in exploratory model selection exercises <a href='{{base.url}}/pdfs/SymondsMoussalli_2011_ModelSelection.pdf' class='animated'>Symonds & Moussalli, 2011</a>).
 
 Concretely, we can add up Akaike weights across models that included each of the variables to obtain predictor weights:
 

@@ -7,7 +7,7 @@ entrynum: 1
 
 ### The setup
 
-In this section, I will describe some preliminary steps taken to perform model selection. As you remember, we are trying to find a good model of task choice, given a prior decision to end the current streak and choose a different task (i.e. considering "switch" trials only). I considered a multinomial logistic regression family of models that assume that a task with maximal value (or utility) is chosen amongst alternatives. The value is computed as a linear combination of individual-specific and task-specific predictors (see Yves Croissant's [tutorial](https://cran.r-project.org/web/packages/mlogit/vignettes/mlogit.pdf){: .animated} for more information on conditional logistic regression). For example, facing a set of choices, an individual might consider her current level of performance on each of the tasks or how interesting she finds the each of the tasks to be (alternative-specific variables). The choice might also be influenced by the individual characteristics, like group assignment (individual-specific variable).
+In this section, I will describe some preliminary steps taken to perform model selection. As you remember, we are trying to find a good model of task choice, given a prior decision to end the current streak and choose a different task (i.e. considering "switch" trials only). I considered a multinomial logistic regression family of models that assume that a task with maximal value (or utility) is chosen amongst alternatives. The value is computed as a linear combination of individual-specific and task-specific predictors (see Yves Croissant's tutorial <a href='{{base.url}}/pdfs/Croissant_2012_mlogit.pdf' class='animated' target='_blank'>[pdf]</a>{: .animated} for more information on conditional logistic regression). For example, facing a set of choices, an individual might consider her current level of performance on each of the tasks or how interesting she finds the each of the tasks to be (alternative-specific variables). The choice might also be influenced by the individual characteristics, like group assignment (individual-specific variable).
 
 Given the exploratory nature of this effort, I have identified a set of 19 potentially interesting predictors. These include various measures of performance, time spent on each task, subjective ratings, and several other:
 
@@ -64,7 +64,7 @@ Given the exploratory nature of this effort, I have identified a set of 19 poten
   <tr>
     <td class="tg-c3ow">P-value</td>
     <td class="tg-c3ow">pval</td>
-    <td class="tg-0pky">Continuous variable representing the probability of current performance (PC overall) under a binomial distribution with 0.5 chance of success. I.e. the probability of the current hit rate, assuming no learning (random guessing).</td>
+    <td class="tg-0pky">Continuous variable representing the probability of the current hit rate, assuming no learning (random guessing). More precisely, it is the likelihood of uniform probability in a binomial distribution with a given number of trials and a given number of hits. </td>
     <td class="tg-c3ow">[0; 1]</td>
   </tr>
   <tr>

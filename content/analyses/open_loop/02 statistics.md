@@ -1,5 +1,5 @@
 ---
-title: Initial observations
+title: Descriptive stats
 category: open_loop
 doctype: entry
 entrynum: 2

@@ -115,5 +115,113 @@ This can't be helped by restricting the set of models to only those with lower A
 
 <a href='{{site.baseurl}}/r/param_weights.svg'><img src='{{site.baseurl}}/r/param_weights.svg' alt='Akaike_param_weights'></a>
 
+Note that variables `pc` and `sc` were highly correlated, so each model that included both was not fit. Therefore, there Akaike weighting procedure does not apply equally well to these two variables as there were less (fitted) models that included them. However, since we saw that each had a relatively large effect on AIC reduction, I will include it in the variable selection exercise that follows.
+
 ### 3.3. Variable selection
-A handful of variables seem to be more relevant to the task selection process than others. These include `currentd`, `relt`, `time`, `pval`, and `int` variables. Since Akaike information criteria are essentially relative to a given set of models, we can re-evaluate the relative importance of each of these variables against the backdrop of a more restricted pool of variables. 
+
+Akaike weights suggest some relative importance other variables, including `prog`, `scsq`, and `lrn2`. Upon some critical reflection, some self-reported measures appear to be in ambiguous relationships with task choices, because of the tendency of subjects to stick to the newly chosen task and the tendency to perform better on that task as a result. The `time` variable is the most straightforward example: if a subject switches to a certain task, they will likely stick to it for several trials and thus report more time spent on that task. Subjective progress ratings are likely to be correlated with time spent on a task, since more time on a task improves performance. These kinds of variables aid in predicting task choices considerably, but contribute little to explaining them. So despite their effect on reducing model AIC, it is best to dismiss them.
+
+Other variables are even more tricky. For instance, it is not clear what time instance(s) (or period(s)) the reported **interest** ("Rate each monster family based on how much you were interested in discovering what they preferred eating ...") reflects. It is not controversial to say that a momentary interest in a certain task should add to the tendency to switch to that task at that instant, but it is difficult to say how interest in a task at time point A affects the tendency to choose that task at some distant time B. It is equally unclear how some general, ineffable sentiment about interest in a task (disregarding specific time) should predict task switches. Moreover, the very act of asking someone to rate interest in something might increase one's curiosity about that thing; whereas no such interest would have manifested, had the question not suggested it. Considering all that, I think we cannot justifiably relate the interest ratings to task choices. Some or all of the same logic applies to self-reported ratings of current and future learnability (`lrn` and `lrn2`), complexity (`comp`) and (`rule`). It might be useful to consider models with only objective behavioral predictors: `relt`, `pval`, `pc`, `pcr`, `scsq`, `pct`, and `tord`.
+
+Since Akaike information criterion scores are essentially relative to a given set of candidate models, we can re-evaluate the relative importance of each of these variables against the backdrop of a more restricted pool of variables. This time, I have limited the candidate set of models to only include predictor subsets of the 7 behavioral variables mentioned above. This amounts to 255 model fits. Below is the list of top 10 AIC-ranked candidates:
+
+<pre class='codeblock'>
+                                                          form nvars    loglik  accuracy      AIC      BIC
+             nxt ~ currentd + pcr + pval + relt + scsq | 1     5 -2259.106 0.4394724 4534.213 4579.497
+       nxt ~ currentd + pct + pcr + pval + relt + scsq | 1     6 -2258.253 0.4342911 4534.506 4585.452
+        nxt ~ currentd + pcr + pc + pval + relt + scsq | 1     6 -2258.500 0.4338201 4535.000 4585.945
+                    nxt ~ currentd + pcr + pval + relt | 1     4 -2260.593 0.4295808 4535.186 4574.810
+              nxt ~ currentd + pct + pcr + pval + relt | 1     5 -2259.784 0.4281677 4535.569 4580.853
+      nxt ~ currentd + tord + pcr + pval + relt + scsq | 1     6 -2258.848 0.4418276 4535.697 4586.642
+nxt ~ currentd + tord + pct + pcr + pval + relt + scsq | 1     7 -2257.896 0.4319359 4535.793 4592.399
+               nxt ~ currentd + pcr + pc + pval + relt | 1     5 -2260.092 0.4309939 4536.185 4581.469
+ nxt ~ currentd + tord + pcr + pc + pval + relt + scsq | 1     7 -2258.183 0.4333490 4536.366 4592.972
+  nxt ~ currentd + pct + pcr + pc + pval + relt + scsq | 1     7 -2258.243 0.4342911 4536.486 4593.092
+</pre>
+
+Repeating another step from the previous analysis, we can see that the two most dominant variables still have very large effects. However, there are some differences. Both `relt` and `pval` have smaller effects. Also, `pc` and `pct` had their impacts on AIC reduced. One the other hand, `pcr` had a larger negative effect on AIC.
+
+<pre class='codeblock'>
+                Estimate Std. Error      t value      Pr(>|t|)
+currentd    -1039.939170   8.391335 -123.9301149 1.057172e-223
+relt         -151.207973   8.391335  -18.0195362  7.476202e-47
+pval          -86.575006   8.391335  -10.3171905  5.687574e-21
+pc             -6.549726   8.391335   -0.7805344  4.358268e-01
+pcr            -3.430711   8.391335   -0.4088397  6.830130e-01
+scsq           -2.581166   8.391335   -0.3075990  7.586478e-01
+pct            -2.077423   8.391335   -0.2475676  8.046755e-01
+tord            2.655720   8.391335    0.3164836  7.519039e-01
+(Intercept)  5738.961272  12.788408  448.7627582  0.000000e+00
+</pre>
+
+Cumulative Akaike weights show a similar pattern. However, models with `pc` do not seep to be as important as the regression approach suggests. Instead, there seems to be a tapering trail of importance of `pcr`, `scsq`, `pct`, and `pc`:
+
+<a href='{{site.baseurl}}/r/cum_weights_behav.svg'><img src='{{site.baseurl}}/r/cum_weights_behav.svg' alt='Akaike_cum_weights_behav'></a>
+
+### 3.4. A closer look at a behavioral variables
+We can now closely examine the best model from the smaller subset as suggested by AIC. This model includes 4 best behavioral variables available: `relt`, `pval`, `pc`, and `scsq`.
+
+#### 3.4.1. Model confusion
+First, let us take a look at the quality of model predictions. Overall, the accuracy is better than chance (~ 37%), but clearly, the model makes false predictions more often than not. Below is the confusion matrix of the model, along with a number of related statistics:
+
+<pre class='codeblock'>
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4
+         1  79  36  41  42
+         2 105 210  93  86
+         3 130 109 273  90
+         4 150 168 140 371
+
+Overall Statistics
+                                          
+               Accuracy : 0.4395          
+                 95% CI : (0.4182, 0.4609)
+    No Information Rate : 0.2774          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.2434          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4
+Sensitivity           0.17026  0.40153   0.4991   0.6299
+Pos Pred Value        0.39899  0.42510   0.4535   0.4475
+Neg Pred Value        0.80000  0.80786   0.8199   0.8315
+Prevalence            0.21856  0.24635   0.2577   0.2774
+Detection Rate        0.03721  0.09892   0.1286   0.1748
+Detection Prevalence  0.09326  0.23269   0.2836   0.3905
+Balanced Accuracy     0.54926  0.61201   0.6452   0.6657
+</pre>
+
+Sensitivity (also called recall) is the ratio of true positives and false negatives. The number of correct guesses is divided by the number of misses for a given class (in the confusion matrix above it is the number on a diagonal divided by the column sum of off-diagonal elements). Intuitively, it tells us how many trials on which in reality a certain task was preferred to other alternatives was correctly identified. We can see that the model is more confused by trials on which easier tasks are selected. Sensitivity is the lowest for 1D, and increases with task difficulty. This might reflect the slight imbalance of predicted classes (i.e. a bias toward more frequent observations, see confusion matrix prevalence scores), but may also indicate that choosing a harder task corresponds to more structured behavior (considering our set of predictors). This could imply that switching to an easy task may be driven by factors that we did not account for, such as boredom which was not explicitly included as a predictor. Note however, that `relt` could be correlated with boredom.
+
+Finally, precision (positive predictive value) is the ratio of true positives and the sum of true and false positives. It tells us the amount of correct guesses relative to all positive guesses of a given class. In other words, out of all guesses the model made for a certain class, what proportion was correct? Here again we see that the model was more precise in predicting more difficult tasks.
+
+#### 3.4.2. Estimates of fixed effects
+The table below shows the values of the fitted parameters:
+
+<pre class='codeblock'>
+Coefficients :
+                 Estimate  Std. Error z-value  Pr(>|z|)    
+2:(intercept)    0.078753    0.069234  1.1375   0.25533    
+3:(intercept)    0.062078    0.075996  0.8169   0.41401    
+4:(intercept)    0.024365    0.086536  0.2816   0.77829    
+currentd       -21.264302 1714.250055 -0.0124   0.99010    
+pcr             -0.277324    0.126434 -2.1934   0.02828 *  
+pval             3.210516    0.596565  5.3817 7.380e-08 ***
+relt            -1.385366    0.274082 -5.0546 4.314e-07 ***
+scsq            -0.898549    0.522936 -1.7183   0.08575 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</pre>
+
+- **`currentd`** has a large effect but lacks statistical significance. That is because its standard error is very large, which is in turn, a reflection of large sampling variation of the corresponding estimate. I do not fully understand why the sampling variation for a dummy variable should so large. I understand that it helps prediction by increasing the number of true negatives (people do not switch to tasks they are currently playing) but does not help to increase the true negative rate. But I am not sure why it means that sampling variation of the corresponding parameter estimate should be so large. 
+
+- **`pval`**. The model suggests a significant positive effect of `pval`. The positive sign means that tasks with higher `pval` (interpreted as the true likelihood of a binary distribution with change probability of success) were more likely to be switched to. In other words, the more probable it was that responses on a certain task were random (i.e. that the task has not been learned) the more likely it was selected on a switch trial. This is in line with a learning-based exploration, since the subjects seem to choose unlearned tasks sometimes.
+
+- **`relt`** had a highly significant negative effect on task selection. It appears that tasks on which participants spent less time were more likely to be chosen. This suggests tendency to actively explore parts of the environment that have been neglected in the past.
+
+- **`scsq`**, the squared challenge score indicates the optimality of task difficulty (measured by as total percent of correct responses). The closer the score is to 0, the less over- or under-challenging it is relative to the baseline optimum, defined as the easiest task not yet learned, as indicated by a cutoff criterion of `pval`. The negative effect (marginally significant) effect suggests a slight tendency to chose optimally challenging tasks.

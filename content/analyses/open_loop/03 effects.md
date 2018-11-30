@@ -158,7 +158,7 @@ Cumulative Akaike weights show a similar pattern. However, models with `pc` do n
 
 <a href='{{site.baseurl}}/r/cum_weights_behav.svg'><img src='{{site.baseurl}}/r/cum_weights_behav.svg' alt='Akaike_cum_weights_behav'></a>
 
-### 3.4. A closer look at a behavioral variables
+### 3.4. A closer look at behavioral variables
 We can now closely examine the best model from the smaller subset as suggested by AIC. This model includes 4 best behavioral variables available: `relt`, `pval`, `pc`, and `scsq`.
 
 #### 3.4.1. Model confusion

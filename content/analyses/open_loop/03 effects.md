@@ -201,7 +201,7 @@ Sensitivity (also called recall) is the ratio of true positives and false negati
 Finally, precision (positive predictive value) is the ratio of true positives and the sum of true and false positives. It tells us the amount of correct guesses relative to all positive guesses of a given class. In other words, out of all guesses the model made for a certain class, what proportion was correct? Here again we see that the model was more precise in predicting more difficult tasks.
 
 #### 3.4.2. Estimates of fixed effects
-The table below shows the values of the fitted parameters:
+The table below shows the values of fitted parameters:
 
 <pre class='codeblock'>
 Coefficients :

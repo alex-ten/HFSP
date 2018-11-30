@@ -7,8 +7,11 @@
 - title: Closed Loop
   folder: closed_loop
 
-- title: Modeling
-  folder: open_loop
+- title: Modeling Choices
+  folder: modeling_choices
+
+- title: Modeling Switches
+  folder: modeling_switches
 
 - title: Other
   folder: other

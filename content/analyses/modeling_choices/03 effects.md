@@ -1,6 +1,6 @@
 ---
 title: Quality of predictors
-category: open_loop
+category: modeling_choices
 doctype: entry
 entrynum: 3
 ---
@@ -119,7 +119,7 @@ Note that variables `pc` and `sc` were highly correlated, so each model that inc
 
 ### 3.3. Variable selection
 
-Akaike weights suggest some relative importance other variables, including `prog`, `scsq`, and `lrn2`. Upon some critical reflection, some self-reported measures appear to be in ambiguous relationships with task choices, because of the tendency of subjects to stick to the newly chosen task and the tendency to perform better on that task as a result. The `time` variable is the most straightforward example: if a subject switches to a certain task, they will likely stick to it for several trials and thus report more time spent on that task. Subjective progress ratings are likely to be correlated with time spent on a task, since more time on a task improves performance. These kinds of variables aid in predicting task choices considerably, but contribute little to explaining them. So despite their effect on reducing model AIC, it is best to dismiss them.
+Akaike weights suggest some relative importance of variables not pointed out by the regression approach, including `prog`, `scsq`, and `lrn2`. Upon some critical reflection, some self-reported measures appear to be in ambiguous relationships with task choices, because of the tendency of subjects to stick to the newly chosen task and the tendency to perform better on that task as a result. The `time` variable is the most straightforward example: if a subject switches to a certain task, they will likely stick to it for several trials and thus report more time spent on that task. Subjective progress ratings are likely to be correlated with time spent on a task, since more time on a task improves performance. These kinds of variables aid in predicting task choices considerably, but contribute little to explaining them. So despite their effect on reducing model AIC, it is best to dismiss them.
 
 Other variables are even more tricky. For instance, it is not clear what time instance(s) (or period(s)) the reported **interest** ("Rate each monster family based on how much you were interested in discovering what they preferred eating ...") reflects. It is not controversial to say that a momentary interest in a certain task should add to the tendency to switch to that task at that instant, but it is difficult to say how interest in a task at time point A affects the tendency to choose that task at some distant time B. It is equally unclear how some general, ineffable sentiment about interest in a task (disregarding specific time) should predict task switches. Moreover, the very act of asking someone to rate interest in something might increase one's curiosity about that thing; whereas no such interest would have manifested, had the question not suggested it. Considering all that, I think we cannot justifiably relate the interest ratings to task choices. Some or all of the same logic applies to self-reported ratings of current and future learnability (`lrn` and `lrn2`), complexity (`comp`) and (`rule`). It might be useful to consider models with only objective behavioral predictors: `relt`, `pval`, `pc`, `pcr`, `scsq`, `pct`, and `tord`.
 

@@ -1,6 +1,6 @@
 ---
 title: Multinomial logistic model
-category: open_loop
+category: modeling_choices
 doctype: entry
 entrynum: 1
 ---

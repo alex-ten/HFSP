@@ -1,6 +1,6 @@
 ---
 title: Descriptive stats
-category: open_loop
+category: modeling_choices
 doctype: entry
 entrynum: 2
 ---

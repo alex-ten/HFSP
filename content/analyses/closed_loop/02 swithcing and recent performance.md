@@ -1,95 +1,27 @@
 ---
-title: Switching and recent performance
+title: Similar exploration, different exploitation
 category: closed_loop
 doctype: entry
 entrynum: 2
 ---
 
-[Figure 2.1](#f-2-1){: .animated} shows the relationship between switching and performance at a group level. The relationship is split by task, and different tasks are organized into rows. Within each task, there are two subplots that share an x-axis with each other. The x-axis represents the number of trials played on that task during the free play stage. The top subplot shows the probability of switching and the bottom one displays PC. Since this analysis is potentially revealing, I provide a detailed description of how the data going into this visualization was prepared [beneath](#description){: .animated} the figure. 
+[Figure 2.1](#f-2-1){: .animated} shows proportions of time spent on each task and switches to each task in the two groups. This visualization demonstrates that the two groups made similar decisions when it came to *choosing* a task given a decision to switch. However, decisions about *when* to switch seems to be different across groups. The free group spent most of its time on task 1D, yet switched to it the least. Both groups switched to the R task the most, but the strategic group spent almost 40% of time on that task. From the learning progress hypothesis perspective it might seem like the strategic group failed to follow an optimal learning strategy, but bear in mind that the ultimate mastery of tasks was similar across groups, and that becoming certain about uncertainty of an event as also a learning progress. And if the process of growing certain about an uncertainty of an event takes longer, perhaps the strategic group were optimal. This could explain the prevalence of R-task trials among subjects who were explicitly informed (see figure [Figure 2.2](#f-2-2){: .animated}) about the unsolvability of one of the tasks.
 
 {% include caption.html 
     obj='figure' 
     num=page.entrynum 
     ext='1'
-    label='Group-level probability of switching as a function of performance <br>(left = F, right = S)' %}
+    label='Differences in switching and play time between groups' %}
 
-[![switching_and_preformance]({{site.baseurl}}/img_compressed/switching_and_performance.svg)]({{site.baseurl}}/img/switching_and_performance.svg)
-
-#### Notes
-- the scale of and the position along the y-axis is different for each group / task split. 
-- It seems that there is some correspondence between Pr(switch) and PC. Specifically, switching seems to be more likely when PC starts to plateau, which is a more prominent pattern for the F column. However, it might be the case that people just start switching after a certain period of time on a task (perhaps, due to boredom).
-
-<a href='#description'></a>
-#### Description
-
-First, *outcome* (correct / incorrect) and *switch* (whether a new task was chosen for the next trial) data was split by group and task, resulting in two binary vectors for each split. These vectors were then sliced and stacked up in such a way that outcomes and switches of each subject occupied a separate row of its respective container array. Below is a simplified example of a single array containing the outcome data from 9 subjects (the switch array is processed identically, so that the corresponding rows represent the same individual). Note that the adjacent trials in a row do not necessarily correspond to adjacent trials during free play, because each row is a *concatenation* of all trials played on a given task by the subject.
-
-<pre class='codeblock'>
-[[0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1],
- [1, 0, 0, 1, 0],
- [1, 0, 0, 0, 0, 1],
- [1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1],
- [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0],
- [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1],
- [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1],
- [0],
- [1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1]]
-</pre>
-
-Since each row length is variable, only some of the data was selected and clipped to produce meaningful group-level statistics. The rows were first sorted by length. 
-
-<pre class='codeblock'>
-[[0],
- [1, 0, 0, 1, 0],
- [1, 0, 0, 0, 0, 1],
- [0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1],
- [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0],  <------ Middle row (length = 11)
- [1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1],
- [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1],
- [1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
- [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1]]
-</pre>
-
-Then, all rows shorter than the length of the middle row were thrown out, and the remaining rows were clipped by that length. What is left is a rectangular array that includes clipped data from at least half of the subjects.
-
-<pre class='codeblock'>
-[[0],
- [1, 0, 0, 1, 0],
- [1, 0, 0, 0, 0, 1],
- [0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1]
- ---------------------------------
-               ^
- [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0]   |,
- [1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1]   |, 0, 0, 1],
- [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0]  >|, 1, 0, 1],
- [1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0]   |, 0, 0, 0, 1],
- [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0]   |, 1, 0, 0, 1, 1]]
-</pre>
-
-Each row of the outcome array was smoothed by a dynamic retrospective boxcar with a window size of 5. Concretely, each element in a row was replaced by the average across up to 4 preceding elements and itself. Each i-th element of the first 4 (starting from i = 0) was calculated as the average over the preceding i elements and itself. This corresponds to the assumption that all subjects considered the percentage of correct responses over up to 5 preceding trials (including the just played present trial), before deciding whether to switch on the next trial.
-
-<pre class='codeblock'>
-[1.  , 0.5 , 0.67, 0.5 , 0.6, 0.4, 0.4, 0.2, 0.2, 0.2, 0.2]
-[1.  , 1.  , 1.  , 1.0 , 0.8, 0.8, 0.6, 0.4, 0.2, 0.4, 0.4]
-[0.  , 0.5 , 0.33, 0.5 , 0.6, 0.6, 0.6, 0.8, 0.8, 0.6, 0.6]
-[1.  , 1.  , 1.  , 0.75, 0.6, 0.6, 0.4, 0.2, 0.4, 0.4, 0.2]
-[1.  , 1.  , 1.  , 0.75, 0.8, 0.6, 0.4, 0.4, 0.4, 0.4, 0.4]
-</pre>
-
-The mean vector across rows of this smoothed *outcome* array for each task is shown as a color-coded line in each task subplot. The mean vector across rows of the equivalently organized *switch* array is presented as a scatter plot. Finally, to prepare the last row of subplots, all arrays within a group were clipped by the "width" of the shortest array of their group and averaged across rows.
-
----
-
-[Figure 2.2](#f-2-2){: .animated} shows the same relationship more directly by plotting the probability of switching against PC. 
+<a href='{{site.baseurl}}/img/time_vs_switching.svg'><img alt='time_vs_switching' src='{{site.baseurl}}/img_compressed/time_vs_switching.svg'/></a>
 
 {% include caption.html 
     obj='figure' 
     num=page.entrynum 
     ext='2'
-    label='Probability of switching plotted against PC <br>(left = F, right = S)' %}
+    label='Play time split by groups and conditions' %}
 
-[![switching_and_preformance_2]({{site.baseurl}}/img_compressed/switching_and_performance_2.svg)]({{site.baseurl}}/img/switching_and_performance_2.svg)
+<a href='{{site.baseurl}}/img/time_on_tasks.svg'><img alt='time_on_tasks' src='{{site.baseurl}}/img_compressed/time_on_tasks.svg' style="width: 50%; height:auto; display: block; margin: 0 auto;/"></a>
 
-#### Notes
-- There seems to be a positive relationship between the probability of switching and PC.
-- However, the variance of Pr(switch) increases with higher levels of PC. In part, this seems to be an effect of sparsity of switches on any given trial. But it might also reflect the observation that higher levels of PC can either be rising or leveling off and Pr(switch) may change in relation to that, which these scatter plots cannot quite capture.
+One tentative explanation is that the "strategic" instructions created a knowledge gap different from one that would be naturally induced (e.g. in the F group). This might not be particularly satisfying, as it seems to push the question aside rather than answering it, since we have not established what exactly knowledge gaps are. Let's try to apply <a href='{{site.baseurl}}/pdfs/GolmanLoewenstein_2016_gaps.pdf' class='animated' target='_blank'>Golman and Loewenstein's (2016)</a> [G&L] framework to our monster task. The authors propose a general model of informational utility, in which answers to certain questions are evaluated on the basis of their material value, valence, and clarity. Since correct answers in our study (e.g. "fat and short bears prefer tacos") were not supposed to have any material value or emotional valence, we can ignore the corresponding terms in G&L's general form utility function and focus on clarity, which corresponds to the entropy of a discrete probability distribution over a set of conceived answers.
+

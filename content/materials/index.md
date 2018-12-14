@@ -66,6 +66,59 @@ There were 3 versions of this task run on Mechanical Turk:
 **Free Play Only** contained just the (1) free state.
 As indicated, the Strategic and Free Play with Familiarization Phase also each have 2 conditions. This condition only changed the instructions given to the participant. One condition explicitly stated that one of the monster families may have unpredictable food preferences. The other condition omitted this sentence.
 
+### 1.4. Instrictions
+The general instructions presented to all groups were as follows:
+
+> In this game, you will see 4 monster families:
+
+> In each family there are several individuals, and the appearance of an individual might predict what food they like to eat. 
+
+> When you interact with a monster family, different individuals will be presented to you. For each individual, two food items will be displayed, and you can click on the one you think it prefers. You will receive feedback whether your guess was correct or not. 
+
+> On each trial, you can freely select to see another monster from the same family, or to switch to a different family. 
+
+> Some families have food preferences that you can discover based on their appearance. 
+
+> `[i+ or i- instruction]`
+
+> `[F or S instruction]`
+
+> Please, ensure your volume is at a comfortable listening level.
+
+Depending on group and condition, the general instructions were amended as follows. The informed (i+) condition emphasized the possibility of a potentially unlearnable tasks:
+
+> However, there might also be a monster family with unpredictable preferences.
+
+The freely exploring (F) group were presented with the description of the 3 phases of the experiment:
+
+> The task is organized in 3 phases:
+
+> Introduction: We will give 15 trials per family to introduce them to you. This will take approximately 3 minutes.
+
+> Free choice: During the next 250 trials, you will be able to freely select which monster family to interact with. You can switch at any moment from one family to another and as many times as you want. This will take approximately 10 minutes.
+
+> Questionnaire: There will be a post-task questionnaire at the end. This will also take approximately 3 minutes to complete.
+
+> (You may play longer if you would like, but we will not pay any additional bonus for the extra time you spend on the task. If you do continue to play over the required 250 trials, please be aware of how much time is left remaining to submit the HIT.)
+
+While the strategic group received an explicit instruction to maximize learning (appearing twice) and the additional description of the test phase:
+
+> In the main section of the task, we ask you to play for 250 trials and try to maximize your learning **about all the 4 families**. 
+
+> The task will be organized in 4 phases:
+
+> Introduction: We will give 15 trials per family to introduce them to you. This will take approximately 3 minutes.
+
+> Free Choice: You will have 250 trials in which you will freely select the monster family to interact with. You can switch at any moment from one family to another and as many times as you want. Try to maximize your learning for all 4 families during this period. This will take approximately 10 minutes.
+
+> Testing: We will briefly test how well you learned to predict the food preferences within each family. This will take approximately 3 minutes.
+
+> Questionnaire: There will be a post-task questionnaire at the end. This will also take approximately 3 minutes to complete.
+
+> Please, ensure your volume is at a comfortable listening level.
+
+A complete content of instructions for all groups and conditions can be found <a href='{{site.base_url}}/pdfs/instructions.pdf' target='_blank' class='animated'>here</a>.
+
 ## 2. Self-reports
 Participants were first asked one question at the end of training and a series of questions at the end of testing or free play. All questions were answered on 10-point Likert scale.
 

@@ -247,3 +247,54 @@ accuracy = 0.327315914489311
 {% endraw %}
 </pre>
 -->
+
+
+#### Base rate
+We should be able to safely assume that the expected prior probability of food preferences is uniform (i.e. $$p(h)=0.5$$). This should especially apply in the beginning of the experiment if no a priori expectations about the relative frequency of encountering monsters with a certain food preference are held. Whether and how the prior is updated as a function of experience has an effect on how subsequent uncertainty is computed. We could additionally assume that the empirical base rate information is neglected throughout the experiment (i.e. remains uninformative, at 0.5) regardless of the actual evidence. Perhaps participants do not pay attention to the base rate at all. In some of the tasks (I1D, and R) the true base rate was in fact 0.5, but note that in 1D and 2D task, the true prior under uniform sampling of individual monsters was not flat, due to uneven split of the feature space (2:4 and 16:20, respectively, see the [description of problem space]({{site.baseurl}}/content/writeup/index.html#1.1._The_problem_space){:.animated}). Another possibility is to start with a prior of 0.5, but then update the actual frequencies of observed food preferences. Furthermore, there are several possibilities of how these observations may be stored. For example, positive or negative feedback may have an effect on how the base rates are updated.
+
+#### Evidence
+When prediction is the goal, it is common to ignore the evidence term in the denominator, since it is constant across different hypotheses. Thus, in any given situation when multiple hypotheses (categories, answers) are considered, the one that has the highest relative score is the most likely to be correct. For that reason, the posterior is often written as being proportional to the numerator of the Bayes rule:
+
+$$ p(h \vert \textbf{d}) \propto {p(h)p(\textbf{d} \vert h)} $$
+
+All that is needed here in order to come up with relatively more or less probable answers is the base rate $$p(h)$$ and likelihood $$ p(\textbf{d} \vert h) $$. However, we are not merely interested in the *argmax* of the product of prior and likelihood, because we want to know the conditional entropy of a monster family which requires the absolute posterior probability
+
+#### Likelihood
+Suppose the perceptual system is able to derive a set of distinct features (e.g. eyes, star, tentacles, etc.) from raw visual input and represent them as abstract variables (e.g. having some size, relative position, etc.). Then the $$N$$-dimensional space $$\mathcal{D}$$ can represent the latent feature space of either discretely or continuously varying dimension variables. Assuming [conditional independence](https://en.wikipedia.org/wiki/Conditional_independence){:.animated} of features given a food preference, the likelihood that a particular monster has a particular food preference is the product of probabilities (possibly estimated from the observed frequencies) positive examples:
+
+$$p(\textbf{d} \equiv (d_1, d_2, ... , d_m) \vert h) = \prod_{i=1}^{m}p(d_i \vert h)$$
+
+Incorporating this simplification are known as the *naive* Bayes approach, since it assumes that features appear independently regardless of the underlying category ({% include citation.html link='pdfs/Lewis1998.pdf' cite='Lewis, 1998'%}). There are a couple of issues with this. First, the 2D task was constructed in such a way that the features would not be conditionally independent. That is, while dimension $$d_i$$ does not predict dimension $$d_j$$ unconditionally, if given the knowledge of food preference, the two dimensions become mutually constrained. Second, naive Bayes 
+
+
+---
+
+Assuming random and independent sampling of monster features from that space, and (2) conditional independence of features on food preferences (see below), the likelihood of hypothesis $$h$$ can be calculated heuristically as a function of its size ({% include citation.html link='pdfs/Tenenbaum1999.pdf' cite='Tenenbaum, 1999'%}):
+
+$$p(\textbf{d} \equiv (d_1, d_2, ... , d_m) \vert h) =  = \frac{1}{|h|^N}$$
+
+Uncertainty depends on the size of the hypothesis space, which depends not only on the size of the rectangles in known dimensions, but their dimensionality as well. All else being equal, a higher-dimensional cube is always larger than its lower-dimensional projection. So initially, when the there are more potential dimensions that might influence food choices, uncertainty is very high. but Assuming the participants assume a uniform distribution of these features 
+
+---
+
+Suppose the participant observes $$n$$ positive examples $$D_A = \{ \textbf{d}^{(1)}, \textbf{d}^{(2)}, ..., \textbf{d}^{(n)}\}$$ of monsters that prefer food A.
+
+The assumption of conditional independence has implications for the computation of likelihoods for monster families with multidimensional variability. It is met in I1D, as we can reason that knowing the conditional event (food preference $$h$$) adds no information about the occurrence of some feature $$d_i$$ if we know that $$d_j$$ occurred (knowing whether a short bear is also tall is not clarified by knowing its food preference):
+
+$$ p(d_i, d_j \vert h) = p(d_i \vert h)p(d_j \vert h)$$
+
+The same assumption is not met in the 2D case, since knowing the food preference allows us to gain additional information about $$d_i$$ given $$d_j$$ (knowing whether a short bear is also tall can be  clarified by knowing its food preference):
+
+$$ p(d_i, d_j \vert h) \neq p(d_i \vert h)p(d_j \vert h)$$
+
+
+
+<!--
+A more concrete example might be helpful. Suppose a subject say two monsters with somewhat large eyes ($$x_1=4$$ and $$$x_2=5$$) and both of them preferred food A. Then, the probability that a new monster with large eyes (say, $$y=6$$) will also be high:
+
+$$ p(y prefers A \vert {x_1=4, x_2=5}) = \sum_{r \in \mathcal{D}}p(y \in C \vert r)p(r \vert X)$$
+
+
+After seeing just one positive (or negative) example of food-A-loving monster, what possible other monsters might a participant think would prefer (or dislike) the same food? Presumably, the ones that are similar to that single example (as per instructions). But with very little experience, it is impossible to know what to base the similarity on (is it eye size, the number of eyes, their position, or something else entirely?). Reliable induction requires a sample of several examples.
+
+Now suppose a few other examples have been seen observed. This similarly sparse experience is often enough to support induction in humans. In our monster task, it might be sufficient to observe a handful of monsters to establish the relevant dimensions of variability over which the classification rule might be defined.-->

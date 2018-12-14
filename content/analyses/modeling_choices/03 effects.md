@@ -93,7 +93,7 @@ The analyses in the previous section give us some idea about the relative import
 
 $$ \Delta_i = AIC_i - AIC_{min} $$
 
-Conventionally, a score less than 2 indicates a lack of sufficient differences between the models to select one over the other (see <a href='{{base.url}}/pdfs/BurnhamAnderson_2004_MultimodelInference.pdf' class='animated' target='_blank'>Burnham & Anderson, 2004</a>). In our set, there were 41 models at a distance less than 2 from the lowest-AIC model. Another useful measure that tells us of the relative quality of individual models is the Akaike weight:
+Conventionally, a score less than 2 indicates a lack of sufficient differences between the models to select one over the other (see <a href='{{base.url}}/pdfs/Burnham2004.pdf' class='animated' target='_blank'>Burnham & Anderson, 2004</a>). In our set, there were 41 models at a distance less than 2 from the lowest-AIC model. Another useful measure that tells us of the relative quality of individual models is the Akaike weight:
 
 $$ w_i = \frac{ \exp (-\frac{1}{2} \Delta_i)}{\sum_{r=1}^{R} \exp(-\frac{1}{2} \Delta_r)} $$
 

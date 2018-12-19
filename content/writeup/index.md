@@ -21,7 +21,7 @@ All figures below show more or less the same information -- task prevalence thro
 
 <div class='caption' id='f-2-1'>
     <em>
-        <b>Figure 1.1. Line plots of task prevalence split by group</b>
+        <b>Figure 2.1. Line plots of task prevalence split by group</b>
     </em>
 </div>
 <a href='{{site.baseurl}}/fimg/pselect_G_lines.svg'>
@@ -31,7 +31,7 @@ All figures below show more or less the same information -- task prevalence thro
 
 <div class='caption' id='f-2-2'>
     <em>
-        <b>Figure 1.2. Line plots of task prevalence split by group and condition</b>
+        <b>Figure 2.2. Line plots of task prevalence split by group and condition</b>
     </em>
 </div>
 <a href='{{site.baseurl}}/fimg/pselect_GC_lines.svg'>
@@ -95,6 +95,9 @@ Thus, assuming no correlation, we can calculate the probability of observing our
 </a>
 <hr>
 
+The plots hint at a potential effect of group on correlation between LRN and PC. To test this, a 2-way ANOVA was conducted. The analysis found no significant main effects of neither group nor condition. It appears that the relationship between PC and LRN was homogeneous across groups. It is interesting nonetheless that there are 2 distinct clusters of people: those whose LRN ratings were correlation with their objective performance (the majority), and those whose ratings and performance were completely unrelated.
+
+
 <h2> 5. Judgments of learning potential appear unrelated to change in objectively measured performance during familiarization </h2>
 
 Change in performance is measured as the difference between hit rates during the last and the first five trials of training. Negative difference scores were assigned 0 values, corresponding to no positive change (no progress in performance). Using the same logic for testing the correlations as presented in section 4, the relationship between LRN and change in performance is not obvious:
@@ -124,3 +127,5 @@ Change in performance is measured as the difference between hit rates during the
 <a href='{{site.baseurl}}/fimg/corr_dpc_lrn_lines.svg'>
     <img src='{{site.baseurl}}/fimg/corr_dpc_lrn_lines.svg' alt='lrn_and_dpc2' style="width: 50%; height:auto; display: block; margin: 0 auto;/">
 </a>
+
+Another 2-way ANOVA was conducted to spot any reliable differences in the relationship between performance improvement and learning potential. The main effect of group ($$M_{free}=-0.215 < M_{strategic}=-.103$$) was significant ($$F(1,326) = 3.9255, p=.0484$$), while no effect of condition was found. It appears that there were more people in the free group with higher correlation between LRN and dPC. Note that dPC is not independent from the PC score. In general, high PC is expected to correspond to lower higher dPC, if the initial performance is low. 

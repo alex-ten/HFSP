@@ -56,7 +56,7 @@ Histograms below show the distribution of individuals in each group that played 
 
 <h2> 4. Judgments of learning potential appear related to objectively measured performance during familiarization </h2>
 
-In this, as well as the next section, a Spearman's rank correlation coefficient was calculated for each participant to provide a measure of the relationship between their judgment of learning potential and their objective performance (or, in section 5, their positive change in objective performance). First, each participant's raw PC and LRN scores were converted to ranks. Ranks of the tied values were determined randomly.
+In this, as well as the next section, a Spearman's rank correlation coefficient was calculated for each participant to provide a measure of the relationship between their judgment of learning potential and their objective performance (or, in section 5, their positive change in objective performance). First, each participant's raw PC and LRN scores were converted to ranks. Ranks of the tied values were determined randomly. This tie-breaking approach may product false non-zero coefficients where there should be no correlation. Therefore, all cases with all-equal LRN or PC scores were assigned 0 correlation coefficients prior to the ranking procedure.
 
 Each individual coefficient is highly unreliable, since only 4 observations (one for each task) are available per participant. However, noting that the correlation coefficient $$r$$ is a sample statistic, we can find an appropriate sampling distribution to evaluate our data against. For example, we can assume that each individual coefficient comes from sampling two independent (uncorrelated) variables, PC and LRN. If they are indeed independent, the sampling distribution of $$r$$ should be approximately normally distributed around 0. We can compare our sufficiently large groups to this abstract sampling distribution by applying an appropriate transformation, known as the [Fisher's z](http://onlinestatbook.com/2/sampling_distributions/samp_dist_r.html){:.animated}:
 
@@ -77,7 +77,7 @@ Thus, assuming no correlation, we can calculate the probability of observing our
 
 <div class='caption' id='f-4-1'>
     <em>
-        <b>Figure 4.1. Distributions of individual-level Pearson product-moment correlation coefficients between LRN and PC across groups and conditions (separate bar histograms)</b>
+        <b>Figure 4.1. Distributions of individual-level Spearman's rank correlation coefficients between LRN and PC across groups and conditions (separate bar histograms)</b>
     </em>
 </div>
 <a href='{{site.baseurl}}/fimg/corr_pc_lrn_bars.svg'>
@@ -87,7 +87,7 @@ Thus, assuming no correlation, we can calculate the probability of observing our
 
 <div class='caption' id='f-4-2'>
     <em>
-        <b>Figure 4.1. Distributions of individual-level Spearman correlation coefficients between LRN and PC across groups and conditions (composite line line histogram)</b>
+        <b>Figure 4.2. Distributions of individual-level Spearman's rank correlation coefficients between LRN and PC across groups and conditions (overlaid line histograms)</b>
     </em>
 </div>
 <a href='{{site.baseurl}}/fimg/corr_pc_lrn_lines.svg'>
@@ -100,7 +100,7 @@ The plots hint at a potential effect of group on correlation between LRN and PC.
 
 <h2> 5. Judgments of learning potential appear unrelated to change in objectively measured performance during familiarization </h2>
 
-Change in performance is measured as the difference between hit rates during the last and the first five trials of training. Negative difference scores were assigned 0 values, corresponding to no positive change (no progress in performance). Using the same logic for testing the correlations as presented in section 4, the relationship between LRN and change in performance is not obvious:
+Change in performance is measured as the difference between hit rates during the last and the first five trials of training. Negative difference scores were assigned 0 values, corresponding to no positive change (no progress in performance). Using the same logic for testing the correlations as presented in section 4, the relationship between LRN and change in performance is not so obvious. Only in the free and uninformed group dPC reliably predicted LRN:
 
 <pre class='codeblock'>
     F / i+: r = -0.10, z = -0.86, p =  0.19
@@ -111,7 +111,7 @@ Change in performance is measured as the difference between hit rates during the
 
 <div class='caption' id='f-5-1'>
     <em>
-        <b>Figure 5.1. Distributions of individual-level Pearson product-moment correlation coefficients between LRN and dPC across groups and conditions (separate bar histograms)</b>
+        <b>Figure 5.1. Distributions of individual-level Spearman's rank correlation coefficients between LRN and dPC across groups and conditions (separate bar histograms)</b>
     </em>
 </div>
 <a href='{{site.baseurl}}/fimg/corr_dpc_lrn_bars.svg'>
@@ -121,11 +121,11 @@ Change in performance is measured as the difference between hit rates during the
 
 <div class='caption' id='f-5-1'>
     <em>
-        <b>Figure 5.2. Distributions of individual-level Pearson product-moment correlation coefficients between LRN and dPC across groups and conditions (composite line line histogram)</b>
+        <b>Figure 5.2. Distributions of individual-level Spearman's rank correlation coefficients between LRN and dPC across groups and conditions (composite line line histogram)</b>
     </em>
 </div>
 <a href='{{site.baseurl}}/fimg/corr_dpc_lrn_lines.svg'>
     <img src='{{site.baseurl}}/fimg/corr_dpc_lrn_lines.svg' alt='lrn_and_dpc2' style="width: 50%; height:auto; display: block; margin: 0 auto;/">
 </a>
 
-Another 2-way ANOVA was conducted to spot any reliable differences in the relationship between performance improvement and learning potential. The main effect of group ($$M_{free}=-0.215 < M_{strategic}=-.103$$) was significant ($$F(1,326) = 3.9255, p=.0484$$), while no effect of condition was found. It appears that there were more people in the free group with higher correlation between LRN and dPC. Note that dPC is not independent from the PC score. High PC is expected to correspond to higher dPC, given low initial performance. 
+Another 2-way ANOVA was conducted to spot any reliable differences in the relationship between performance improvement and learning potential. Again, there were no significant main effects and no interactions.

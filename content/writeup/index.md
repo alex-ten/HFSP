@@ -56,7 +56,7 @@ Histograms below show the distribution of individuals in each group that played 
 
 <h2> 4. Judgments of learning potential appear related to objectively measured performance during familiarization </h2>
 
-In this, as well as the next section, a simple Pearson product-moment correlation coefficient was calculated for each participant to provide a measure of relationship between an individual's judgment of learning potential and their objective performance (or, in section 5, their change in objective performance). 
+In this, as well as the next section, a Spearman's rank correlation coefficient was calculated for each participant to provide a measure of the relationship between their judgment of learning potential and their objective performance (or, in section 5, their positive change in objective performance). First, each participant's raw PC and LRN scores were converted to ranks. Ranks of the tied values were determined randomly.
 
 Each individual coefficient is highly unreliable, since only 4 observations (one for each task) are available per participant. However, noting that the correlation coefficient $$r$$ is a sample statistic, we can find an appropriate sampling distribution to evaluate our data against. For example, we can assume that each individual coefficient comes from sampling two independent (uncorrelated) variables, PC and LRN. If they are indeed independent, the sampling distribution of $$r$$ should be approximately normally distributed around 0. We can compare our sufficiently large groups to this abstract sampling distribution by applying an appropriate transformation, known as the [Fisher's z](http://onlinestatbook.com/2/sampling_distributions/samp_dist_r.html){:.animated}:
 
@@ -69,10 +69,10 @@ $$ \sigma = \frac{1}{\sqrt{N - 3}} $$
 Thus, assuming no correlation, we can calculate the probability of observing our data in samples of correlation coefficients:
 
 <pre class='codeblock'>
-    F / i+: r = -0.45, z = -3.90, p = 0.00
-    F / i-: r = -0.41, z = -3.49, p = 0.00
-    S / i+: r = -0.42, z = -3.92, p = 0.00
-    S / i-: r = -0.39, z = -3.53, p = 0.00
+    F / i+: r = -0.35, z = -3.07, p =  0.00
+    F / i-: r = -0.35, z = -3.01, p =  0.00
+    S / i+: r = -0.32, z = -2.97, p =  0.00
+    S / i-: r = -0.30, z = -2.72, p =  0.00
 </pre>
 
 <div class='caption' id='f-4-1'>
@@ -87,7 +87,7 @@ Thus, assuming no correlation, we can calculate the probability of observing our
 
 <div class='caption' id='f-4-2'>
     <em>
-        <b>Figure 4.1. Distributions of individual-level Pearson product-moment correlation coefficients between LRN and PC across groups and conditions (composite line line histogram)</b>
+        <b>Figure 4.1. Distributions of individual-level Spearman correlation coefficients between LRN and PC across groups and conditions (composite line line histogram)</b>
     </em>
 </div>
 <a href='{{site.baseurl}}/fimg/corr_pc_lrn_lines.svg'>
@@ -103,10 +103,10 @@ The plots hint at a potential effect of group on correlation between LRN and PC.
 Change in performance is measured as the difference between hit rates during the last and the first five trials of training. Negative difference scores were assigned 0 values, corresponding to no positive change (no progress in performance). Using the same logic for testing the correlations as presented in section 4, the relationship between LRN and change in performance is not obvious:
 
 <pre class='codeblock'>
-    F / i+: r = -0.17, z = -1.52, p = 0.06
-    F / i-: r = -0.26, z = -2.20, p = 0.01
-    S / i+: r = -0.10, z = -0.94, p = 0.17
-    S / i-: r = -0.11, z = -0.97, p = 0.17
+    F / i+: r = -0.10, z = -0.86, p =  0.19
+    F / i-: r = -0.20, z = -1.70, p =  0.04
+    S / i+: r = -0.10, z = -0.92, p =  0.18
+    S / i-: r = -0.02, z = -0.21, p =  0.42
 </pre>
 
 <div class='caption' id='f-5-1'>

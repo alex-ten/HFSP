@@ -23,4 +23,3 @@ That leaves us with 330 subjects: 75, 79, 84, and 92 in groups F/i-, F/i+, S/i- 
         <td><a href="{{site.baseurl}}/img/average_choice_bias_across_tasks_clean.svg"><img src="{{site.baseurl}}/img_compressed/average_choice_bias_across_tasks_clean.svg" alt="choice_bias_clean" /></a></td>
     </tr>
 </table>
-    

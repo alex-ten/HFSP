@@ -30,7 +30,6 @@ Alternatively, we could use subjective competence judgments more directly throug
 $$ 
     \epsilon = y - \hat y \\\\
     = y - (g(x_{end}) - g(x_{beg}))
-
 $$
 
 where $$ y $$ is the actual progress rating provided by the subject, and $$ \hat y =  $$ is the difference between competence, $$ g(x) $$ at the end of the session and competence at the beginning of the session. The computation of the residual requires similar scaling between $$y$$ and $$\hat y$$. This can be achieved by restricting the objectively measurable progress $$ g(x_{end}) - g(x_{beg}) $$ to a range between $$[0, 1]$$. We can do this by replacing all negative progress values with 0 (interpreting it as "no progress") and min-max normalizing the resulting data to a range between $$[0, 1-g(x_{beg})]$$. Subjective ratings can be similarly normalized to span the interval between $$[0,1]$$ and the values can be compared directly by a simple subtraction. A summary index of the residuals across subjects and tasks can serve as the basis for comparing various forms of $$ g(x) $$. The input to the competence function will depend on the function form. It could be, for example, a series of raw feedback, hit rate, sensitivity, or something else.
